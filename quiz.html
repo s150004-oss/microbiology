@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microbiology Quiz – Chapters 4 &amp; 5 (100 MCQs)</title>
+<style>
+:root{--bg:#f4f6fb;--panel:#fff;--text:#1d2433;--muted:#5b667a;--line:#e0e5f0;--a:#4f46e5;--ab:#eceafd;--g:#16a34a;--gb:#e6f7ec;--r:#dc2626;--rb:#fde8e8;--y:#ca8a04;--yb:#fdf6dc;--t:#0f9d8a;--o:#e8590c;--shadow:0 2px 12px rgba(30,40,80,.09)}
+:root[data-theme="dark"]{--bg:#10141f;--panel:#1a2030;--text:#e7ebf5;--muted:#9aa5bd;--line:#2b3550;--a:#818cf8;--ab:#23265a;--g:#4ade80;--gb:#10301c;--r:#f87171;--rb:#3a1717;--y:#facc15;--yb:#352c0a;--t:#2dd4bf;--o:#fb923c;--shadow:0 2px 12px rgba(0,0,0,.45)}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;font-size:16px}
+header{background:linear-gradient(120deg,#4f46e5,#0f9d8a 55%,#e8590c);color:#fff;padding:26px 18px;text-align:center}
+header h1{margin:0 0 4px;font-size:1.7rem}
+header p{margin:0;opacity:.92}
+.wrap{max-width:840px;margin:0 auto;padding:18px 14px 60px}
+.top{display:flex;justify-content:flex-end;margin-bottom:8px}
+button{font:inherit;cursor:pointer}
+.btn{border:0;border-radius:12px;padding:11px 20px;font-weight:600;background:var(--a);color:#fff;box-shadow:var(--shadow)}
+.btn.sec{background:var(--panel);color:var(--text);border:1px solid var(--line)}
+.btn.g{background:var(--g);color:#fff}
+.btn.o{background:var(--o);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.small{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:5px 14px;font-size:.88rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{display:flex;align-items:center;gap:6px;border:2px solid var(--line);border-radius:12px;padding:7px 12px;cursor:pointer;background:var(--bg);user-select:none}
+.chip input{accent-color:var(--a)}
+.chip.c4{border-left:6px solid var(--t)} .chip.c5{border-left:6px solid var(--o)}
+.chip.on{background:var(--ab);border-color:var(--a)}
+.chip small{color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:8px 0}
+.row label{display:flex;gap:6px;align-items:center;cursor:pointer}
+select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text)}
+.hide{display:none!important}
+/* quiz */
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--t),var(--a));width:0;transition:width .3s}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.92rem;color:var(--muted);margin:10px 0 6px}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:700;color:#fff}
+.tag.c4{background:var(--t)} .tag.c5{background:var(--o)}
+.q{font-size:1.15rem;font-weight:600;margin:12px 0 16px}
+.opt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin:9px 0;color:var(--text);transition:.12s}
+.opt:hover:not(:disabled){border-color:var(--a);background:var(--ab)}
+.opt b{flex:0 0 28px;height:28px;border-radius:50%;background:var(--line);display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.opt.sel{border-color:var(--a);background:var(--ab)}
+.opt.sel b{background:var(--a);color:#fff}
+.opt.ok{border-color:var(--g);background:var(--gb)}
+.opt.ok b{background:var(--g);color:#fff}
+.opt.bad{border-color:var(--r);background:var(--rb)}
+.opt.bad b{background:var(--r);color:#fff}
+.opt:disabled{cursor:default}
+.fb{margin-top:12px;padding:12px 14px;border-radius:12px;border-left:6px solid var(--g);background:var(--gb)}
+.fb.bad{border-color:var(--r);background:var(--rb)}
+.fb strong{display:block;margin-bottom:3px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px;margin-top:8px}
+.grid button{height:36px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:.85rem}
+.grid button.cur{outline:3px solid var(--a)}
+.grid button.ans{background:var(--ab);border-color:var(--a)}
+.grid button.ok{background:var(--gb);border-color:var(--g)}
+.grid button.bad{background:var(--rb);border-color:var(--r)}
+/* result */
+.score{display:flex;gap:22px;align-items:center;flex-wrap:wrap;justify-content:center}
+.ring{--p:0;width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--c,var(--g)) calc(var(--p)*1%),var(--line) 0);display:flex;align-items:center;justify-content:center}
+.ring div{width:134px;height:134px;border-radius:50%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring b{font-size:2rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;min-width:260px}
+.stats div{text-align:center;border-radius:12px;padding:10px}
+.stats .s1{background:var(--gb);color:var(--g)} .stats .s2{background:var(--rb);color:var(--r)} .stats .s3{background:var(--yb);color:var(--y)}
+.stats b{display:block;font-size:1.6rem}
+.lb{margin:10px 0}
+.lb .h{display:flex;justify-content:space-between;font-size:.92rem;margin-bottom:3px}
+.lb .bar{height:12px}
+.rv{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--bg)}
+.rv.bad{border-left:6px solid var(--r)} .rv.ok{border-left:6px solid var(--g)} .rv.un{border-left:6px solid var(--y)}
+.rv p{margin:4px 0}
+.yours{color:var(--r);font-weight:600} .right{color:var(--g);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <h1>🧪 Microbiology Quiz</h1>
+  <p>Chapters 4 &amp; 5 · 100 multiple-choice questions · exam-style</p>
+</header>
+
+<div class="wrap">
+  <div class="top"><button class="small" id="theme">🌓 Dark / Light</button></div>
+
+  <!-- MENU -->
+  <div id="menu">
+    <div class="card">
+      <h2>1) Choose the lessons</h2>
+      <div class="row">
+        <button class="small" id="selAll">Select all</button>
+        <button class="small" id="selC4">Chapter 4 only</button>
+        <button class="small" id="selC5">Chapter 5 only</button>
+      </div>
+      <div class="chips" id="chips"></div>
+      <p id="avail" style="color:var(--muted);margin:6px 0 0"></p>
+    </div>
+    <div class="card">
+      <h2>2) Choose the mode</h2>
+      <div class="row">
+        <label><input type="radio" name="mode" value="study" checked> <b>Study mode</b> – see right/wrong and the explanation after each question</label>
+      </div>
+      <div class="row">
+        <label><input type="radio" name="mode" value="exam"> <b>Exam mode</b> – no feedback until the end, then full review</label>
+      </div>
+      <div class="row">
+        <label><input type="checkbox" id="shuf" checked> Shuffle question order</label>
+        <label>Number of questions:
+          <select id="count"><option value="0">All selected</option><option value="25">25</option><option value="50">50</option></select>
+        </label>
+      </div>
+    </div>
+    <button class="btn" id="start" style="width:100%;font-size:1.1rem">▶ Start quiz</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz" class="hide">
+    <div class="card">
+      <div class="meta"><span id="qnum"></span><span id="qtag"></span><span id="live"></span></div>
+      <div class="bar"><i id="pb"></i></div>
+      <div class="q" id="qtext"></div>
+      <div id="opts"></div>
+      <div id="fb"></div>
+      <div class="nav">
+        <button class="btn sec" id="prev">← Previous</button>
+        <button class="btn" id="next">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <details><summary style="cursor:pointer;font-weight:600">🧭 Question navigator</summary><div class="grid" id="grid"></div></details>
+      <div class="row" style="margin-top:12px"><button class="btn o" id="finish">Finish &amp; see result</button><button class="small" id="quit">Quit to menu</button></div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="hide"></div>
+</div>
+
+<script>
+/* ================= QUESTION BANK (correct answer is stored first, options are shuffled at runtime) ================= */
+var D=[];
+function Q(l,q,c,a,b,d,e){D.push({l:l,q:q,o:[c,a,b,d],e:e});}
+
+/* ---------- 4.1 Prokaryotic Diversity (14) ---------- */
+Q("4.1","About how many bacterial phyla have been identified from culturing or nucleotide sequencing?","About 18","About 2","About 50","About 200","The text states there are about 18 phyla of Bacteria. (Archaea are placed in two major phyla.)");
+Q("4.1","Which feature is shared by Archaea and Eukarya but is ABSENT in Bacteria?","Histone proteins","70S ribosomes","A single circular chromosome","Lack of a cell nucleus","Histones are present in Archaea and Eukarya but not in Bacteria. 70S ribosomes, a circular chromosome and no nucleus are features of Bacteria and Archaea.");
+Q("4.1","Ether-linked membrane lipids are characteristic of:","Archaea","Bacteria","Eukarya","Both Bacteria and Eukarya","Bacteria and Eukarya have ester-linked membrane lipids; Archaea have ether-linked lipids.");
+Q("4.1","Which domain begins protein synthesis with formylmethionine?","Bacteria","Archaea","Eukarya","Both Archaea and Eukarya","Bacteria use formylmethionine; Archaea and Eukarya use methionine as the first amino acid.");
+Q("4.1","Growth above 100°C is reported in which domain(s)?","Archaea only","Bacteria only","Bacteria and Archaea","Eukarya only","Growth above 80°C occurs in Bacteria and Archaea, but growth above 100°C occurs only in Archaea.");
+Q("4.1","Mitochondria of Eukarya most likely arose by endosymbiosis from an ancestor of the:","Proteobacteria","Cyanobacteria","Firmicutes","Actinobacteria","Mitochondria derive from a proteobacterial ancestor; chloroplasts derive from a cyanobacterial ancestor.");
+Q("4.1","Which phylum was responsible for the 'oxygen revolution' on the young Earth and is the likely ancestor of chloroplasts?","Cyanobacteria","Proteobacteria","Chlamydiae","Actinobacteria","Cyanobacteria carry out photosynthesis similar to unicellular algae; their evolution transformed the atmosphere, and chloroplasts probably came from a cyanobacterial ancestor.");
+Q("4.1","The name 'Firmicutes' (firm = strong, cuti = skin) refers to their:","Thick gram-positive cell wall","Ability to form biofilms","Rigid spiral shape","Heat-resistant membrane lipids","Firmicutes are mostly gram-positive and share a similar thick 'skin' – the cell wall structure.");
+Q("4.1","Which genus is the source of many important antibiotics?","<i>Streptomyces</i>","<i>Mycobacterium</i>","<i>Neisseria</i>","<i>Vibrio</i>","<i>Streptomyces</i> (Actinobacteria, actinomycetes with branched filaments) produces important antibiotics. <i>Mycobacterium</i> causes tuberculosis.");
+Q("4.1","Which bacteria are about half the size of rickettsiae, cannot be seen with a light microscope, and can be cultivated only within living cells?","Chlamydiae","Cyanobacteria","Mycoplasma","Actinomycetes","Chlamydiae are roughly half the size of rickettsiae and are obligate intracellular – one species causes the gonorrhea-like disease chlamydia.");
+Q("4.1","Which statement about rickettsiae is correct?","They are transmitted mainly by arthropods and are cultivated only in living tissues","They are the largest bacteria and grow on nutrient agar","They lack a cell wall and cause pneumonia","They are transmitted by contaminated water and cause cholera","Rickettsiae are tiny, arthropod-transmitted, grown only in living tissue (e.g., fertilized eggs); they cause Rocky Mountain spotted fever and typhus.");
+Q("4.1","Which statement about methanogens is TRUE?","They are killed by oxygen and release over 2 billion tons of methane per year","They require oxygen and high NaCl concentrations","They grow best at pH 2–3 in hot sulfur springs","They are recognized by their pink pigments","Methanogens (Euryarchaeota) are killed by O₂; about one-third of the methane comes from archaea in cow rumen. Pink pigments and O₂ + salt describe extreme halophiles.");
+Q("4.1","Which archaea require oxygen and high salt (NaCl), often have pink pigments, and may live in lakes with pH above 11?","Extreme halophiles","Methanogens","Crenarchaeota","Thermoacidophiles","Extreme halophiles need O₂ for energy metabolism and high salt; their pink pigments make them easy to identify.");
+Q("4.1","Hot sulfur springs (~75°C, pH 2–3) and volcanic vents are typical habitats of the:","Crenarchaeota","Proteobacteria","Methanogens","Mycoplasma","The Crenarchaeota grow in hot, acidic environments.");
+
+/* ---------- 4.2 Shapes & arrangements (10) ---------- */
+Q("4.2","Which pairing of organism and cell shape is correct?","<i>Bacillus anthracis</i> – rectangular rod with squared ends","<i>Salmonella typhi</i> – club-shaped rod","<i>Corynebacterium diphtheriae</i> – slender rod","<i>Vibrio cholerae</i> – spirochete","<i>S. typhi</i> is slender, <i>B. anthracis</i> is rectangular with squared ends, <i>C. diphtheriae</i> is club-shaped, and <i>V. cholerae</i> is a vibrio (comma-shaped).");
+Q("4.2","Cocci are typically what size in diameter?","0.5–1.0 µm","5–10 µm","20–50 µm","50–100 µm","Cocci are quite small, 0.5 to 1.0 µm in diameter.");
+Q("4.2","<i>Neisseria gonorrhoeae</i> and <i>N. meningitidis</i> are examples of which arrangement?","Diplococcus","Streptococcus","Tetrad","Sarcina","Cocci that remain in a pair after reproducing are diplococci.");
+Q("4.2","Cocci that divide randomly and form an irregular, grape-like cluster are called:","Staphylococcus","Sarcina","Streptococcus","Tetrad","Staphylo = 'cluster'. <i>Staphylococcus aureus</i> causes food poisoning, toxic shock syndrome and skin infections.");
+Q("4.2","A cube-like packet of eight cocci is called a:","Sarcina","Tetrad","Diplococcus","Staphylococcus","Sarcina = 'bundle'. <i>Micrococcus luteus</i>, a common skin inhabitant, is an example. A tetrad is four cocci forming a square.");
+Q("4.2","Which streptococcus species is harmless and used to produce dairy products such as yogurt?","<i>Streptococcus lactis</i>","<i>Streptococcus pyogenes</i>","<i>Streptococcus mutans</i>","<i>Streptococcus pneumoniae</i>","<i>S. lactis</i> is used in dairy production; <i>S. pyogenes</i> causes strep throat and <i>S. mutans</i> tooth decay.");
+Q("4.2","Spirochetes (e.g., <i>Treponema pallidum</i>) move by:","Contractions of axial filaments running the length of the cell","Rotation of thick external flagella","Gliding on a slime layer","Pili retraction","Spirochetes have a thin, flexible wall and no flagella in the traditional sense; spirilla have a thick rigid wall and external flagella.");
+Q("4.2","Comma-shaped curved rods, such as the cholera organism, are called:","Vibrios","Spirilla","Spirochetes","Streptobacilli","<i>Vibrio cholerae</i> is the typical vibrio.");
+Q("4.2","Which genus has appendaged cells, and which has branching filaments?","<i>Caulobacter</i> – appendages; <i>Nocardia</i> – branching filaments","<i>Nocardia</i> – appendages; <i>Caulobacter</i> – branching filaments","<i>Treponema</i> – appendages; <i>Vibrio</i> – branching filaments","<i>Micrococcus</i> – appendages; <i>Bacillus</i> – branching filaments","Other shapes: <i>Caulobacter</i> has appendaged cells, <i>Nocardia</i> has branching filaments, and some archaea are square or star-shaped.");
+Q("4.2","The word 'bacillus' can mean:","Both a rod-shaped cell and a genus name","Only a rod-shaped cell","Only a spore-forming genus","A chain of rods only","The text notes two uses: a rod-shaped bacterial cell and the genus <i>Bacillus</i>. A chain of rods is a streptobacillus.");
+
+/* ---------- 4.3 Overview (2) ---------- */
+Q("4.3","Which of the following is one of the three processes around which prokaryotic cell structure is organized?","Compartmentation of metabolism","Sporulation","Photosynthesis","Gene transfer by conjugation","The three: sensing and responding to the exterior, compartmentation of metabolism, and growth and reproduction.");
+Q("4.3","Which structures are mainly responsible for sensing and responding to the exterior environment?","External structures","Internal subcompartments","The nucleoid","Ribosomes","Because most prokaryotes are surrounded by a cell wall, some pattern of external structures is needed to sense the environment and respond to it or to other cells.");
+
+/* ---------- 4.4 External structures (15) ---------- */
+Q("4.4","Which statement about pili is correct?","They are protein fibers that carry adhesins used for attachment","They are made of peptidoglycan and used for swimming","They are lipid vesicles that store sulfur","They are DNA loops that carry resistance genes","Pili (fimbriae) are short, thin protein fibers serving as scaffolding for adhesins, allowing attachment to surfaces, biofilm and microcolony formation.");
+Q("4.4","The adhesins of <i>Bordetella pertussis</i> attach to cells of the:","Upper respiratory tract","Urogenital tract","Intestinal wall","Skin","<i>B. pertussis</i> (whooping cough) binds the upper respiratory tract, whereas <i>N. gonorrhoeae</i> binds the urogenital tract.");
+Q("4.4","Conjugation pili are used to:","Transfer genetic material from a donor to a recipient cell","Attach to the tooth surface","Resist phagocytosis","Rotate the cell at 1,500 rpm","Conjugation pili establish contact between appropriate cells and facilitate transfer of DNA.");
+Q("4.4","Which is the correct order of bacterial flagellum parts from outside to the cell envelope?","Filament → hook → basal body","Basal body → hook → filament","Hook → filament → basal body","Filament → basal body → hook","The hollow filament is attached by the hook to the basal body, which is anchored in the cell membrane and wall.");
+Q("4.4","How many rings does the basal body of a gram-negative flagellum have?","Four (two pairs)","Two","One","Six","Gram-positive: one ring in the membrane + one in the wall (2). Gram-negative: a pair in the membrane + a pair in the wall (4).");
+Q("4.4","The energy for flagellar rotation comes from:","Diffusion of protons (H⁺) into the cell","ATP hydrolysis only","Diffusion of sodium out of the cell","Peptidoglycan synthesis","Proton flow through proteins associated with the basal body powers rotation of up to 1,500 rpm.");
+Q("4.4","A bacterial flagellum is about ___ thick and ___ long.","20 nm; 10–20 µm","20 µm; 10–20 nm","2 nm; 1–2 µm","200 nm; 100–200 µm","Flagella are only about 20 nm thick but 10–20 µm long, many times the cell diameter.");
+Q("4.4","In chemotaxis, clockwise rotation of the flagellar motor causes the cell to:","Tumble randomly for about a second","Run straight ahead","Stop permanently","Form an endospore","Counterclockwise = run; clockwise = tumble. Toward an attractant, runs get longer and tumbles fewer.");
+Q("4.4","Movement toward oxygen gas is called:","Aerotaxis","Phototaxis","Chemotaxis toward sugar only","Gliding","Phototaxis is movement toward light; aerotaxis is movement toward oxygen.");
+Q("4.4","Endoflagella of spirochetes:","Fold back along the cell body inside an outer sheath, causing jerky motility","Are external and push the cell like a propeller","Are made of peptidoglycan","Are absent in all spirochetes","Endoflagella extend from the poles, fold back along the cell body and are surrounded by an outer sheath; motility is less regular and more jerky.");
+Q("4.4","Gliding motility is seen in:","Cyanobacteria and myxobacteria","<i>E. coli</i> and <i>Salmonella</i>","<i>Staphylococcus</i> and <i>Streptococcus</i>","Methanogens only","Gliding occurs across solid surfaces along the long axis of bacillus- or filamentous-shaped cells, usually slower than flagellar motility.");
+Q("4.4","A glycocalyx that is thick and covalently bound to the cell is called a:","Capsule","Slime layer","Biofilm matrix","Periplasm","Thinner, diffuse polysaccharides (often dextran) form a slime layer.");
+Q("4.4","Which bacteria evade phagocytosis because their capsule prevents white blood cells from easily engulfing them?","<i>Streptococcus pneumoniae</i> and <i>Bacillus anthracis</i>","<i>Escherichia coli</i> and <i>Salmonella typhi</i>","<i>Mycoplasma</i> and <i>Chlamydia</i>","<i>Caulobacter</i> and <i>Nocardia</i>","The text gives <i>S. pneumoniae</i> and <i>B. anthracis</i> as examples of capsule-based immune evasion.");
+Q("4.4","'Ropy milk' is caused by slime produced by:","<i>Alcaligenes viscolactis</i>","<i>Bacillus subtilis</i>","<i>Streptococcus mutans</i>","<i>Vibrio cholerae</i>","<i>A. viscolactis</i> slime makes milk thick and stringy; slime-producing <i>Bacillus subtilis</i> can make bread ropy.");
+Q("4.4","Dental plaque is best described as:","A biofilm formed with the glycocalyx of <i>S. mutans</i> and other bacteria","A lipid monolayer","An endospore cluster","A collection of conjugation pili","In biofilms, a carbohydrate matrix binds microcolonies together, and water channels deliver nutrients and remove waste.");
+
+/* ---------- 4.5 Cell envelope (15) ---------- */
+Q("4.5","Without a cell wall, most bacteria would:","Lyse, because water diffuses inward","Shrink, because water leaves the cell","Form an endospore","Lose their flagella only","Cells are hypertonic inside (more dissolved material), so water diffuses in; the wall resists the osmotic pressure and prevents lysis.");
+Q("4.5","Each disaccharide unit of peptidoglycan is made of:","NAG and NAM","NAG and NAT","NAM and teichoic acid","Lipid A and O-polysaccharide","Peptidoglycan = glycan strands of NAG + NAM cross-linked by peptide bridges (side chains of four amino acids). NAT replaces NAM in archaeal pseudopeptidoglycan.");
+Q("4.5","The gram-positive cell wall is characterized by:","A thick (~25 nm) peptidoglycan with teichoic acids","A thin peptidoglycan with an outer membrane","No peptidoglycan but an S-layer","Lipopolysaccharide and porins","Thick peptidoglycan retains crystal violet. The thin peptidoglycan + outer membrane describes gram-negative; S-layer describes many archaea.");
+Q("4.5","Which statement about teichoic acids is correct?","They are bound to NAM and are essential for viability, though their exact function is unclear","They are part of the outer membrane of gram-negative cells","Deleting their synthesis genes has no effect","They are the endotoxin released on cell death","Wall teichoic acids are anionic polysaccharide derivatives bound to NAM; if their synthesis genes are deleted, the cell dies.");
+Q("4.5","In gram-negative bacteria the peptidoglycan is:","A single thin layer located in the periplasmic space","A thick multilayer outside the outer membrane","Absent","Embedded in the outer half of the outer membrane","The peptidoglycan is two-dimensional (one layer) with cross-linking only within that layer.");
+Q("4.5","The outer half of the gram-negative outer membrane contains mainly:","Lipopolysaccharide (LPS)","Phospholipids","Teichoic acid","Peptidoglycan","The inner half has phospholipids like the cell membrane; the outer half is LPS (O-polysaccharide + lipid A).");
+Q("4.5","Why is lipid A medically important?","On cell death it is released and acts as an endotoxin","It destroys lysozyme","It forms the capsule","It carries resistance genes","Lipid A is released when the cell dies and acts as an endotoxin; the O-polysaccharide identifies strains such as O157:H7 of <i>E. coli</i>.");
+Q("4.5","Porins in the gram-negative outer membrane:","Form pores that let small molecules in but block larger ones","Allow free passage of large proteins","Transfer DNA during conjugation","Are anchored to NAM","Their size selectivity partly explains the resistance of gram-negative cells to antimicrobials, dyes, disinfectants and lysozyme.");
+Q("4.5","The periplasmic space of gram-negative cells contains:","Digestive enzymes and transport proteins","Ribosomes and DNA","Teichoic acids","Gas vesicles","This gel-like space between the outer membrane and the cell membrane speeds entry of nutrients and holds the peptidoglycan layer.");
+Q("4.5","A wall in which NAM is replaced by N-acetyltalosamine uronic acid (NAT) is called:","Pseudopeptidoglycan","Murein","Teichoic acid wall","Lipopolysaccharide","Some archaea have pseudopeptidoglycan; archaea in general lack true peptidoglycan, so they resist lysozyme and penicillin.");
+Q("4.5","The S-layer, the most common archaeal wall, consists of:","Hexagonal protein or glycoprotein forming a crystalline lattice 5–25 nm thick","Cross-linked NAG/NAM strands","Lipopolysaccharide","Dextran fibers","The S-layer self-assembles and provides mechanical support and protection from osmotic lysis.");
+Q("4.5","The bacterial cell membrane is about 5 nm thick and composed of:","40% phospholipid and 60% protein","60% phospholipid and 40% protein","100% phospholipid","50% sterol and 50% protein","The membrane is fluid (consistency of olive oil), so lipids and proteins move laterally – the fluid mosaic model.");
+Q("4.5","The antibiotic polymyxin kills bacteria by:","Poking holes in the membrane bilayer","Blocking 70S ribosomes","Inhibiting peptidoglycan cross-linking","Blocking DNA replication","Polymyxin pokes holes in the bilayer; some detergents and alcohols dissolve it – cytoplasm leaks out and the cell lyses. Streptomycin and tetracycline target ribosomes.");
+Q("4.5","Active transport differs from facilitated diffusion because it:","Moves solutes against the gradient and requires energy","Moves solutes down the gradient without energy","Needs no membrane proteins","Occurs only in Archaea","Facilitated diffusion is passive (high → low via integral proteins); active transport uses protein 'pumps' and energy.");
+Q("4.5","Compared with bacterial membranes, archaeal membranes may have:","Five-carbon repeating-unit lipid tails joined across the membrane as a monolayer","Ester-linked fatty acid tails in a bilayer","Sterols only","No lipids at all","Archaeal lipids are ether-linked, with repeating five-carbon units forming tails longer than fatty acids; adjacent tails bond together to form a lipid monolayer.");
+
+/* ---------- 4.6 Cytoplasm & internal structures (12) ---------- */
+Q("4.6","The nucleoid is:","A diffuse DNA region with no membrane where ribosomes are absent","A membrane-bound nucleus","A storage granule of polyphosphate","A region full of ribosomes","The nucleoid is a central subcompartment where DNA aggregates; it has no covering membrane.");
+Q("4.6","Prokaryotes are genetically haploid. Therefore their chromosome:","Does not undergo mitosis or meiosis","Undergoes mitosis only","Undergoes meiosis only","Undergoes both","Most cells have one copy of each gene; the nucleoid does not undergo mitosis, and with one gene set they cannot undergo meiosis.");
+Q("4.6","The <i>E. coli</i> genome contains about ___ genes encoding some ___ different proteins.","4,300; 2,000","2,000; 4,300","430; 200","43,000; 20,000","The text gives about 4,300 genes and some 2,000 different proteins for <i>E. coli</i>.");
+Q("4.6","Plasmids are:","Small extrachromosomal DNA loops with 5–100 genes that replicate independently","Large chromosomes with essential genes","Linear DNA inside a nucleus","RNA–protein particles","Plasmids are about a tenth the size of the chromosome, contain nonessential information, replicate independently, can be transferred between cells and serve as vectors in genetic engineering.");
+Q("4.6","Why are some plasmids called R plasmids?","They carry genes for chemical or antibiotic resistance","They replicate only in rods","They code for ribosomal RNA","They are restricted to Archaea","R stands for resistance; some other plasmids carry toxin genes.");
+Q("4.6","Prokaryotic ribosomes are 70S particles made of:","30S and 50S subunits","40S and 60S subunits","30S and 60S subunits","50S and 80S subunits","Eukaryotic ribosomes are 80S. Prokaryotic 70S = small 30S + large 50S.");
+Q("4.6","Streptomycin and tetracycline act by:","Preventing prokaryotic ribosomes from carrying out protein synthesis","Dissolving the lipid bilayer","Blocking peptidoglycan cross-links","Preventing conjugation","They target the prokaryotic (70S) ribosome.");
+Q("4.6","Metachromatic granules (volutin) of diphtheria bacilli are deposits of:","Polyphosphate","Glycogen","Elemental sulfur","Lipid","Volutin = long chains of inorganic phosphate; useful for identifying pathogens. Other inclusions: glycogen, sulfur globules, lipid.");
+Q("4.6","Gas vesicles help aquatic prokaryotes by:","Decreasing cell density to regulate buoyancy","Storing sulfur","Producing flagella","Synthesizing DNA","Gas vesicles are compartments with a water-tight protein shell that generate and regulate buoyancy.");
+Q("4.6","The prokaryotic tubulin homolog:","Forms filaments similar to microtubules but does not assemble into microtubules","Assembles into true microtubules","Forms the cell wall","Is found only in Archaea","It was the first prokaryotic cytoskeletal protein discovered.");
+Q("4.6","Actin-like proteins in <i>E. coli</i> and <i>Bacillus subtilis</i> are involved in:","Cell shape, chromosome segregation and magnetosome formation","Gram staining","Capsule synthesis","Flagellar rotation","The actin homologs form filaments that help determine cell shape and take part in chromosome segregation and magnetosome formation.");
+Q("4.6","Which protein determines the crescent shape of <i>Caulobacter crescentus</i>?","Crescentin","Tubulin","Actin","Dextran","In older filamentous cells, crescentin maintains the helical shape by aligning with the inner cell curvature beneath the cytoplasmic membrane.");
+
+/* ---------- 5.1 Reproduction (8) ---------- */
+Q("5.1","Binary fission usually occurs after the cell:","Doubles in mass and replicates its chromosome","Forms an endospore","Loses its cell wall","Undergoes mitosis","Chromosome replicates, the two DNA molecules separate, and cytokinesis follows at midcell.");
+Q("5.1","Prokaryotes separate replicated chromosomes without:","A mitotic spindle","Any proteins","DNA replication","A cell membrane","Prokaryotes lack a mitotic spindle; chromosome-associated proteins are involved but their exact working is unclear.");
+Q("5.1","Cytokinesis in gram-positive cells such as <i>Bacillus licheniformis</i> occurs by:","Constriction that allows a new wall septum to form between daughter cells","Constriction of the envelope followed directly by separation, with no septum","Budding","Mitosis","Gram-negative cells (<i>E. coli</i>) divide by constriction of the envelope followed by separation; gram-positive cells form a septum that later dissolves.");
+Q("5.1","Which organism has the LONGEST optimal generation time?","<i>Treponema pallidum</i> (33 hours)","<i>Mycobacterium tuberculosis</i> (15 hours)","<i>Staphylococcus aureus</i> (30 minutes)","<i>Escherichia coli</i> (15 minutes)","T. pallidum 33 h; M. tuberculosis ~15 h; S. aureus ~30 min; E. coli 15 min.");
+Q("5.1","Which pairing of organism and optimal generation time is correct?","<i>S. aureus</i> – about 30 minutes","<i>E. coli</i> – about 30 minutes","<i>M. tuberculosis</i> – about 15 minutes","<i>T. pallidum</i> – about 3 hours","S. aureus ~30 min; E. coli 15 min; M. tuberculosis ~15 hours; T. pallidum 33 hours.");
+Q("5.1","Faster generation times in a pathogen often mean:","A shorter incubation period of the disease","A longer incubation period","No symptoms","Loss of virulence","Generation time is useful in determining how long until symptoms appear; faster division often means a shorter incubation period.");
+Q("5.1","Binary fission seems to confer 'immortality' because:","There is never a moment when the original cell has died","Cells never lose genes","Daughter cells are older than mothers","Spores are always formed","Each mother cell becomes two young daughter cells, so no first cell ever dies.");
+Q("5.1","What stops an exponentially growing population such as <i>E. coli</i> (1 cell to millions in hours) from continuing indefinitely?","Depletion of food, buildup of waste or other limits","Loss of ribosomes","Lysozyme","The nucleoid","Only depletion of food, waste buildup or another limitation halts the J-shaped growth curve; otherwise <i>E. coli</i> dividing every 15 minutes for 36 hours would cover the Earth.");
+
+/* ---------- 5.2 Prokaryotic growth (16) ---------- */
+Q("5.2","During the lag phase:","No divisions occur; cells grow in size, store nutrients and synthesize enzymes","Cells double every generation","Birth and death rates are equal","Cell death becomes substantial","Lag = adaptation to the new environment; the length depends on the metabolic activity of the remaining cells.");
+Q("5.2","Cells are most vulnerable to antibiotics, and disease symptoms usually develop, during the:","Logarithmic phase","Lag phase","Stationary phase","Decline phase","Many antibiotics affect actively metabolizing cells; during log phase cells cause tissue damage, and broth becomes turbid.");
+Q("5.2","In the stationary phase:","Reproductive and death rates equalize","All cells divide","No metabolic activity occurs","Numbers drop exponentially","Nutrients become scarce, wastes accumulate, and many cells die, balancing new growth.");
+Q("5.2","Endospore formation is triggered when:","Carbon or nitrogen is limiting and population density reaches a critical mass","Temperature drops below 0°C","Oxygen is abundant","Cells enter the lag phase","A few gram-positive genera (<i>Bacillus</i>, <i>Clostridium</i>) enter stationary phase and begin sporulation.");
+Q("5.2","During sporulation, the smaller cell produced by asymmetric division is the ___, which contains large amounts of ___.","Prespore; dipicolinic acid","Mother cell; teichoic acid","Prespore; lipid A","Mother cell; dipicolinic acid","The prespore becomes the endospore; dipicolinic acid helps stabilize its proteins and DNA. The larger mother cell lyses after endospore maturation.");
+Q("5.2","Which resistance property of endospores is stated in the text?","Viable in boiling water for 2 hours","Killed after 10 minutes at 80°C","Killed by 70% ethyl alcohol within minutes","Killed by 500 rems of radiation","Endospores survive boiling for 2 h, 70% ethanol for 20 years, and up to a million rems of radiation (humans barely tolerate 500).");
+Q("5.2","Clostridial endospores germinate only in an environment that is:","Free of oxygen","Rich in oxygen","Strongly acidic","Highly salty","Clostridial spores are found in soil and in human and animal intestines but need an oxygen-free environment to germinate.");
+Q("5.2","Postal workers exposed to anthrax spores in 2001 were effectively treated with:","Antibiotics that kill newly germinated endospores before toxins are made","Detergents","High-pressure heat","Ethyl alcohol","Inhaled spores germinate in the lower respiratory tract and the vegetative cells secrete three deadly toxins, so antibiotics must act before toxin production.");
+Q("5.2","Psychrophiles:","Have optimal growth below 15°C and cannot be human pathogens","Grow best at 37°C","Grow best at 60°C","Require oxygen-free conditions","About 70% of Earth is ocean with deep water below 5°C; psychrophiles are the largest part of the global prokaryotic community but cannot grow at body temperature.");
+Q("5.2","Mesophiles grow best at about:","10–45°C and include human pathogens","40–70°C","Above 80°C","Below 15°C","Mesophiles can still grow slowly below normal range, e.g., <i>S. aureus</i> in cold foods and <i>Campylobacter</i>.");
+Q("5.2","Thermophiles are important contaminants of dairy products because they:","Survive pasteurization temperatures","Grow at 4°C","Need salt","Produce methane","Thermophiles (optimum ~60°C, range 40–70°C) have highly saturated fatty acids in their membranes and heat-stable proteins; they are little threat to human health.");
+Q("5.2","Hyperthermophiles:","Grow optimally above 80°C and are mostly Archaea","Are all Eukarya","Grow best at 37°C","Cannot survive above 60°C","High pressure keeps the water from boiling, so some grow at 113°C.");
+Q("5.2","Which statement correctly pairs an oxygen group with a description?","Obligate anaerobes are inhibited or killed by oxygen","Obligate aerobes do not use oxygen","Aerotolerant anaerobes are killed by oxygen","Microaerophiles require high oxygen concentrations","Obligate aerobes use O₂ as the final electron acceptor; microaerophiles survive in low O₂ (e.g., <i>T. pallidum</i>); aerotolerant anaerobes are insensitive to O₂.");
+Q("5.2","<i>Treponema pallidum</i>, the agent of syphilis, is classified as:","A microaerophile","An obligate aerobe","An obligate anaerobe","A capnophile","Microaerophiles survive where the oxygen concentration is relatively low.");
+Q("5.2","<i>Vibrio cholerae</i> is described as pH-hardy because it tolerates:","pH 2.0 to 9.5","pH 5 to 6","pH 7.2 to 7.4 only","pH 10 to 14","Most species grow over about three pH units near neutral; human blood is 7.2–7.4. Acidophilic <i>Lactobacillus</i> and <i>Streptococcus</i> make buttermilk and sour cream.");
+Q("5.2","Extreme halophiles are Archaea that tolerate salt concentrations of:","20–30%","3.5%","0.5%","1%","Marine prokaryotes survive well in 3.5% salt; several mesophiles such as <i>Staphylococcus</i> are salt-tolerant; extreme halophiles tolerate 20–30%.");
+
+/* ---------- 5.3 Culture media & measurements (8) ---------- */
+Q("5.3","Agar is:","A polysaccharide from red algae that has no nutrients and stays liquid until cooled below about 36°C","A protein from beef extract","A lipid from yeast","A nutrient-rich sugar","Agar is a unique colloid that contributes no essential nutrients.");
+Q("5.3","A chemically defined (synthetic) medium differs from a complex medium because:","The exact chemical composition and amount of every component is known","It contains extra salt","It always contains blood","It cannot support growth","Complex media (nutrient broth/agar) have unknown exact components; defined media are used to determine an organism's specific growth requirements.");
+Q("5.3","MacConkey agar for gram-negative bacteria is an example of a:","Differential medium","Chemically defined medium","Complex medium without dyes","Enriched medium","Differential media contain dyes/indicators to distinguish organisms; mannitol salt agar is selective; blood agar and chocolate agar are enriched.");
+Q("5.3","Fastidious organisms such as streptococci and <i>Neisseria</i> are cultured on:","Enriched media such as blood agar and chocolate agar","Plain nutrient agar only","Chemically defined media only","No medium (cannot be grown at all)","Enriched media contain special nutrients (growth stimulants) for fastidious organisms.");
+Q("5.3","VBNC organisms are:","Viable but non-culturable, detected by methods like 16S rRNA amplification","Dead cells","Spores that grow on nutrient agar","Only found in the human gut","Less than 1% of microorganisms in natural water and soil can be cultured; most rickettsiae and chlamydiae grow only in mammalian cell cultures or animals.");
+Q("5.3","Which method isolates pure colonies by diluting a mixed culture in cooled, still-molten agar poured into Petri dishes?","Pour-plate method","Streak-plate method","Standard plate count","Petroff-Hausser count","The streak-plate method uses a loop to streak successive areas on a single plate of nutrient agar.");
+Q("5.3","The Petroff-Hausser counting chamber (25 large squares, total volume 0.00002 ml) counts:","Both live and dead cells","Only live cells","Only dead cells","Only spores","Direct microscopic counting cannot distinguish live from dead cells.");
+Q("5.3","Which method estimates the viable (living) cell count?","Standard plate count of colony-forming units (CFU)","Dry weight","Direct microscopic count","Turbidity (optical density)","Each viable cell forms a colony (CFU). Dry weight and microscopic counts include dead cells; the most probable number test uses gas production in lactose broth tubes to give a rough statistical estimate.");
+
+/* ================= APP ================= */
+var NAMES={"4.1":"Prokaryotic Diversity","4.2":"Shapes & Arrangements","4.3":"Overview of Cell Structure","4.4":"External Structures","4.5":"The Cell Envelope","4.6":"Cytoplasm & Internal Structures","5.1":"Prokaryotic Reproduction","5.2":"Prokaryotic Growth","5.3":"Culture Media & Measurements"};
+var LES=Object.keys(NAMES);
+function $(id){return document.getElementById(id)}
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var S={list:[],i:0,mode:"study",t0:0};
+
+/* theme */
+(function(){try{var t=localStorage.getItem("mq-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+$("theme").onclick=function(){var r=document.documentElement;var n=r.getAttribute("data-theme")==="dark"?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("mq-theme",n);}catch(e){}};
+
+/* menu chips */
+function buildChips(){
+  var h="";
+  LES.forEach(function(l){
+    var n=D.filter(function(q){return q.l===l}).length;
+    h+='<label class="chip c'+l[0]+' on"><input type="checkbox" value="'+l+'" checked> <span><b>'+l+'</b> '+NAMES[l]+' <small>('+n+')</small></span></label>';
+  });
+  $("chips").innerHTML=h;
+  [].forEach.call($("chips").querySelectorAll("input"),function(c){c.onchange=function(){c.parentNode.classList.toggle("on",c.checked);avail();};});
+  avail();
+}
+function selected(){return [].filter.call($("chips").querySelectorAll("input"),function(c){return c.checked}).map(function(c){return c.value});}
+function avail(){var s=selected();var n=D.filter(function(q){return s.indexOf(q.l)>=0}).length;$("avail").textContent=n+" questions available in your selection (bank total: "+D.length+")";$("start").disabled=n===0;}
+function setSel(f){[].forEach.call($("chips").querySelectorAll("input"),function(c){c.checked=f(c.value);c.parentNode.classList.toggle("on",c.checked);});avail();}
+$("selAll").onclick=function(){setSel(function(){return true})};
+$("selC4").onclick=function(){setSel(function(v){return v[0]==="4"})};
+$("selC5").onclick=function(){setSel(function(v){return v[0]==="5"})};
+
+function prepare(src){
+  return src.map(function(q,ix){
+    var o=q.o.map(function(t,k){return {t:t,ok:k===0}});
+    return {l:q.l,q:q.q,e:q.e,o:shuffle(o),pick:null};
+  });
+}
+function begin(items){
+  S.mode=document.querySelector('input[name="mode"]:checked').value;
+  var list=items.slice();
+  if($("shuf").checked)shuffle(list);
+  var cnt=parseInt($("count").value,10);
+  if(cnt>0&&cnt<list.length)list=list.slice(0,cnt);
+  S.list=prepare(list);S.i=0;S.t0=Date.now();
+  $("menu").classList.add("hide");$("result").classList.add("hide");$("quiz").classList.remove("hide");
+  render();window.scrollTo(0,0);
+}
+$("start").onclick=function(){var s=selected();begin(D.filter(function(q){return s.indexOf(q.l)>=0}));};
+
+/* render question */
+var LET=["A","B","C","D"];
+function render(){
+  var it=S.list[S.i],n=S.list.length;
+  $("qnum").textContent="Question "+(S.i+1)+" / "+n;
+  $("qtag").innerHTML='<span class="tag c'+it.l[0]+'">'+it.l+' · '+NAMES[it.l]+'</span>';
+  $("pb").style.width=((S.i+1)/n*100)+"%";
+  $("qtext").innerHTML=it.q;
+  var h="";
+  it.o.forEach(function(o,k){h+='<button class="opt" data-k="'+k+'"><b>'+LET[k]+'</b><span>'+o.t+'</span></button>';});
+  $("opts").innerHTML=h;
+  $("fb").innerHTML="";
+  var btns=$("opts").querySelectorAll(".opt");
+  [].forEach.call(btns,function(b){b.onclick=function(){choose(parseInt(b.getAttribute("data-k"),10));};});
+  paint();
+  $("prev").disabled=S.i===0;
+  var last=S.i===n-1;
+  $("next").textContent=last?"Finish ✔":"Next →";
+  $("next").disabled=(S.mode==="study"&&it.pick===null);
+  buildGrid();live();
+}
+function paint(){
+  var it=S.list[S.i];
+  var btns=$("opts").querySelectorAll(".opt");
+  [].forEach.call(btns,function(b,k){
+    b.classList.remove("sel","ok","bad");b.disabled=false;
+    if(it.pick===null)return;
+    if(S.mode==="study"){
+      b.disabled=true;
+      if(it.o[k].ok)b.classList.add("ok");
+      else if(k===it.pick)b.classList.add("bad");
+    }else if(k===it.pick)b.classList.add("sel");
+  });
+  if(S.mode==="study"&&it.pick!==null){
+    var good=it.o[it.pick].ok;
+    var right=LET[it.o.findIndex(function(o){return o.ok})];
+    $("fb").innerHTML='<div class="fb '+(good?"":"bad")+'"><strong>'+(good?"✅ Correct!":"❌ Wrong – the correct answer is "+right)+'</strong>'+it.e+'</div>';
+  }else $("fb").innerHTML="";
+}
+function choose(k){
+  var it=S.list[S.i];
+  if(S.mode==="study"&&it.pick!==null)return;
+  it.pick=k;paint();
+  $("next").disabled=false;
+  buildGrid();live();
+}
+function live(){
+  if(S.mode!=="study"){var a=S.list.filter(function(x){return x.pick!==null}).length;$("live").textContent="Answered: "+a+" / "+S.list.length;return;}
+  var d=S.list.filter(function(x){return x.pick!==null});
+  var c=d.filter(function(x){return x.o[x.pick].ok}).length;
+  $("live").textContent="Score so far: "+c+" / "+d.length;
+}
+function buildGrid(){
+  var h="";
+  S.list.forEach(function(it,k){
+    var c="";
+    if(it.pick!==null)c=S.mode==="study"?(it.o[it.pick].ok?"ok":"bad"):"ans";
+    if(k===S.i)c+=" cur";
+    h+='<button class="'+c+'" data-i="'+k+'">'+(k+1)+'</button>';
+  });
+  $("grid").innerHTML=h;
+  [].forEach.call($("grid").querySelectorAll("button"),function(b){b.onclick=function(){S.i=parseInt(b.getAttribute("data-i"),10);render();};});
+}
+$("prev").onclick=function(){if(S.i>0){S.i--;render();}};
+$("next").onclick=function(){
+  if(S.i<S.list.length-1){S.i++;render();window.scrollTo(0,0);}
+  else finish();
+};
+$("finish").onclick=function(){finish();};
+$("quit").onclick=function(){if(confirm("Quit and return to the menu? Your progress will be lost.")){showMenu();}};
+function showMenu(){$("quiz").classList.add("hide");$("result").classList.add("hide");$("menu").classList.remove("hide");window.scrollTo(0,0);}
+
+document.addEventListener("keydown",function(e){
+  if($("quiz").classList.contains("hide"))return;
+  var k={"1":0,"2":1,"3":2,"4":3,"a":0,"b":1,"c":2,"d":3}[e.key.toLowerCase()];
+  if(k!==undefined){choose(k);return;}
+  if((e.key==="Enter"||e.key==="ArrowRight")&&!$("next").disabled){$("next").click();}
+  if(e.key==="ArrowLeft"&&!$("prev").disabled){$("prev").click();}
+});
+
+/* results */
+function finish(){
+  var un=S.list.filter(function(x){return x.pick===null}).length;
+  if(un>0&&!confirm("You have "+un+" unanswered question(s). Finish anyway? They will count as wrong.")){return;}
+  var n=S.list.length;
+  var right=S.list.filter(function(x){return x.pick!==null&&x.o[x.pick].ok}).length;
+  var wrong=S.list.filter(function(x){return x.pick!==null&&!x.o[x.pick].ok}).length;
+  var pct=Math.round(right/n*100);
+  var secs=Math.round((Date.now()-S.t0)/1000);
+  var tm=Math.floor(secs/60)+" min "+(secs%60)+" s";
+  var col=pct>=75?"var(--g)":(pct>=60?"var(--y)":"var(--r)");
+  var msg=pct>=90?"🏆 Excellent! You are ready for a hard exam.":pct>=75?"👏 Very good – review the missed questions and you're set.":pct>=60?"👍 Good, but revise the lessons with the lowest scores below.":"📚 Keep studying – go back to the study guide and retry the weak lessons.";
+  var per={};
+  S.list.forEach(function(x){var p=per[x.l]||(per[x.l]={t:0,r:0});p.t++;if(x.pick!==null&&x.o[x.pick].ok)p.r++;});
+  var h='<div class="card"><h2 style="text-align:center">📊 Your result</h2><div class="score"><div class="ring" style="--p:'+pct+';--c:'+col+'"><div><b>'+pct+'%</b><span>'+right+' / '+n+'</span></div></div>'
+   +'<div><div class="stats"><div class="s1"><b>'+right+'</b>Correct</div><div class="s2"><b>'+wrong+'</b>Wrong</div><div class="s3"><b>'+un+'</b>Skipped</div></div><p style="text-align:center;color:var(--muted);margin:10px 0 0">Time: '+tm+'</p></div></div>'
+   +'<p style="text-align:center;font-weight:600;font-size:1.1rem">'+msg+'</p></div>';
+  h+='<div class="card"><h2>Score by lesson</h2>';
+  LES.forEach(function(l){var p=per[l];if(!p)return;var pc=Math.round(p.r/p.t*100);var c=pc>=75?"var(--g)":pc>=60?"var(--y)":"var(--r)";
+    h+='<div class="lb"><div class="h"><span><b>'+l+'</b> '+NAMES[l]+'</span><span>'+p.r+'/'+p.t+' ('+pc+'%)</span></div><div class="bar"><i style="width:'+pc+'%;background:'+c+'"></i></div></div>';});
+  h+='</div><div class="card"><div class="row">'
+   +'<button class="btn g" id="rWrong"'+((wrong+un)===0?" disabled":"")+'>🔁 Retry wrong / skipped only</button>'
+   +'<button class="btn" id="rAgain">🔄 Restart same set</button>'
+   +'<button class="btn sec" id="rMenu">🏠 Back to menu</button></div></div>';
+  h+='<div class="card"><h2>✅ Check your answers</h2><div class="row"><button class="small" id="fAll">Show all</button><button class="small" id="fBad">Show wrong / skipped only</button></div><div id="review"></div></div>';
+  $("result").innerHTML=h;
+  $("quiz").classList.add("hide");$("result").classList.remove("hide");
+  function review(onlyBad){
+    var r="";
+    S.list.forEach(function(x,k){
+      var ok=x.pick!==null&&x.o[x.pick].ok;
+      if(onlyBad&&ok)return;
+      var cls=ok?"ok":(x.pick===null?"un":"bad");
+      var right=x.o.filter(function(o){return o.ok})[0].t;
+      r+='<div class="rv '+cls+'"><p><b>Q'+(k+1)+'.</b> <span class="tag c'+x.l[0]+'">'+x.l+'</span> '+x.q+'</p>';
+      if(x.pick===null)r+='<p class="yours">⚠ Not answered</p>';
+      else if(!ok)r+='<p class="yours">Your answer: '+x.o[x.pick].t+'</p>';
+      r+='<p class="right">✔ Correct answer: '+right+'</p><p style="color:var(--muted)">'+x.e+'</p></div>';
+    });
+    $("review").innerHTML=r||'<p>🎉 Nothing to show – all answers were correct!</p>';
+  }
+  review(false);
+  $("fAll").onclick=function(){review(false)};
+  $("fBad").onclick=function(){review(true)};
+  $("rMenu").onclick=showMenu;
+  $("rAgain").onclick=function(){
+    S.list.forEach(function(x){x.pick=null;shuffle(x.o);});
+    if($("shuf").checked)shuffle(S.list);
+    S.i=0;S.t0=Date.now();$("result").classList.add("hide");$("quiz").classList.remove("hide");render();window.scrollTo(0,0);
+  };
+  $("rWrong").onclick=function(){
+    var bad=S.list.filter(function(x){return x.pick===null||!x.o[x.pick].ok});
+    S.list=bad.map(function(x){return {l:x.l,q:x.q,e:x.e,o:shuffle(x.o.map(function(o){return {t:o.t,ok:o.ok}})),pick:null};});
+    S.i=0;S.t0=Date.now();$("result").classList.add("hide");$("quiz").classList.remove("hide");render();window.scrollTo(0,0);
+  };
+  window.scrollTo(0,0);
+}
+
+buildChips();
+</script>
+</body>
+</html>
