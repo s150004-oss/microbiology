@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microbiology Study Guide – Chapters 4 &amp; 5</title>
+<style>
+:root{
+  --bg:#f4f6fb; --panel:#ffffff; --text:#1d2433; --muted:#5b667a; --line:#e0e5f0;
+  --c4:#0f9d8a; --c4b:#e3f6f3; --c5:#e8590c; --c5b:#fff0e6;
+  --a:#4f46e5; --ab:#eceafd; --g:#16a34a; --gb:#e6f7ec; --r:#dc2626; --rb:#fde8e8; --y:#ca8a04; --yb:#fdf6dc; --p:#9333ea; --pb:#f3e8fd; --b:#0284c7; --bb:#e0f2fb;
+  --shadow:0 2px 10px rgba(30,40,80,.08);
+}
+:root[data-theme="dark"]{
+  --bg:#10141f; --panel:#1a2030; --text:#e7ebf5; --muted:#9aa5bd; --line:#2b3550;
+  --c4:#2dd4bf; --c4b:#0f2e2c; --c5:#fb923c; --c5b:#33200f;
+  --a:#818cf8; --ab:#23265a; --g:#4ade80; --gb:#10301c; --r:#f87171; --rb:#3a1717; --y:#facc15; --yb:#352c0a; --p:#c084fc; --pb:#2c1745; --b:#38bdf8; --bb:#0c2a3a;
+  --shadow:0 2px 10px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+header.top{background:linear-gradient(120deg,#4f46e5,#0f9d8a 55%,#e8590c);color:#fff;padding:34px 24px 26px;text-align:center}
+header.top h1{margin:0 0 6px;font-size:2rem}
+header.top p{margin:0;opacity:.92}
+.toolbar{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 16px}
+.toolbar button,.toolbar input{font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:999px;padding:6px 14px;cursor:pointer}
+.toolbar input{cursor:text;min-width:180px;flex:1;max-width:320px}
+.toolbar button.on{background:var(--a);color:#fff;border-color:var(--a)}
+.progress{margin-left:auto;font-size:.9rem;color:var(--muted)}
+.layout{display:flex;gap:22px;max-width:1280px;margin:0 auto;padding:22px 16px 60px}
+nav.side{flex:0 0 260px;position:sticky;top:70px;align-self:flex-start;max-height:calc(100vh - 90px);overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+nav.side h4{margin:10px 0 6px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+nav.side h4.n4{color:var(--c4)} nav.side h4.n5{color:var(--c5)}
+nav.side a{display:block;padding:5px 9px;border-radius:8px;color:var(--text);text-decoration:none;font-size:.92rem}
+nav.side a:hover,nav.side a.active{background:var(--ab);color:var(--a)}
+main{flex:1;min-width:0}
+.chapter-banner{border-radius:18px;padding:22px 26px;color:#fff;margin:6px 0 22px;box-shadow:var(--shadow)}
+.chapter-banner.c4{background:linear-gradient(120deg,#0f766e,#14b8a6)}
+.chapter-banner.c5{background:linear-gradient(120deg,#c2410c,#fb923c)}
+.chapter-banner h2{margin:0;font-size:1.7rem}
+.chapter-banner p{margin:4px 0 0;opacity:.95}
+section.lesson{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:24px;box-shadow:var(--shadow);border-top:6px solid var(--lc)}
+section.lesson.l4{--lc:var(--c4);--lcb:var(--c4b)}
+section.lesson.l5{--lc:var(--c5);--lcb:var(--c5b)}
+section.lesson>h3{margin:0 0 4px;font-size:1.4rem;color:var(--lc);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+section.lesson>h3 label{margin-left:auto;font-size:.8rem;color:var(--muted);font-weight:400;cursor:pointer;display:flex;gap:6px;align-items:center}
+section.lesson h4{margin:22px 0 8px;font-size:1.12rem;padding:6px 12px;border-left:5px solid var(--lc);background:var(--lcb);border-radius:0 8px 8px 0}
+section.lesson h5{margin:14px 0 6px;font-size:1rem;color:var(--a)}
+p{margin:8px 0}
+ul{margin:6px 0 8px 0;padding-left:22px}
+li{margin:3px 0}
+.pill{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.8rem;font-weight:600;margin:1px 3px 1px 0}
+.pill.t{background:var(--c4b);color:var(--c4)} .pill.o{background:var(--c5b);color:var(--c5)} .pill.a{background:var(--ab);color:var(--a)} .pill.g{background:var(--gb);color:var(--g)} .pill.r{background:var(--rb);color:var(--r)} .pill.y{background:var(--yb);color:var(--y)} .pill.p{background:var(--pb);color:var(--p)} .pill.b{background:var(--bb);color:var(--b)}
+mark.k{background:var(--yb);color:inherit;padding:0 4px;border-radius:4px;font-weight:600}
+.key{background:var(--yb);border-left:5px solid var(--y);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0}
+.key::before{content:"★ KEY POINT  ";font-weight:700;color:var(--y);font-size:.78rem;letter-spacing:.06em}
+.note{background:var(--bb);border-left:5px solid var(--b);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0}
+.note::before{content:"ℹ NOTE  ";font-weight:700;color:var(--b);font-size:.78rem;letter-spacing:.06em}
+.disease{background:var(--rb);border-left:5px solid var(--r);padding:10px 14px;border-radius:0 10px 10px 0;margin:12px 0}
+.disease::before{content:"⚕ DISEASES / MEDICAL LINK  ";font-weight:700;color:var(--r);font-size:.78rem;letter-spacing:.06em}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:12px 0}
+.card{border:1px solid var(--line);border-top:5px solid var(--cc,var(--a));background:var(--bg);border-radius:12px;padding:12px 16px}
+.card h5{margin:0 0 6px;color:var(--cc,var(--a))}
+.card.t{--cc:var(--c4)} .card.o{--cc:var(--c5)} .card.a{--cc:var(--a)} .card.g{--cc:var(--g)} .card.r{--cc:var(--r)} .card.p{--cc:var(--p)} .card.b{--cc:var(--b)} .card.y{--cc:var(--y)}
+.tw{overflow-x:auto;margin:12px 0;border-radius:12px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--panel)}
+th{background:var(--lc,var(--a));color:#fff;text-align:left;padding:9px 12px;white-space:nowrap}
+td{padding:8px 12px;border-top:1px solid var(--line);vertical-align:top}
+tr:nth-child(even) td{background:var(--bg)}
+td:first-child{font-weight:600}
+td.yes{color:var(--g);font-weight:700} td.no{color:var(--r);font-weight:700}
+/* Mind maps */
+.mm{margin:16px 0;padding:18px;border:2px dashed var(--line);border-radius:16px;background:var(--bg)}
+.mm-title{text-align:center;font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.mm-center{display:block;width:max-content;max-width:100%;margin:0 auto 6px;background:linear-gradient(120deg,var(--a),var(--p));color:#fff;font-weight:700;padding:12px 26px;border-radius:999px;text-align:center;box-shadow:var(--shadow);font-size:1.05rem}
+.mm-stem{width:3px;height:18px;background:var(--line);margin:0 auto}
+.mm-branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;position:relative;padding-top:14px}
+.mm-branches::before{content:"";position:absolute;top:0;left:8%;right:8%;height:3px;background:var(--line)}
+.mm-branch{background:var(--panel);border:2px solid var(--bc);border-radius:12px;padding:0 0 8px;position:relative}
+.mm-branch::before{content:"";position:absolute;top:-14px;left:50%;width:3px;height:14px;background:var(--line)}
+.mm-branch>b{display:block;background:var(--bc);color:#fff;padding:6px 10px;border-radius:9px 9px 0 0;text-align:center;font-size:.95rem}
+.mm-branch ul{list-style:none;margin:8px 0 0;padding:0 10px}
+.mm-branch li{position:relative;padding:2px 0 2px 16px;font-size:.9rem}
+.mm-branch li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:2px;background:var(--bc)}
+.mm-branch li small{color:var(--muted)}
+.b1{--bc:#0f9d8a}.b2{--bc:#4f46e5}.b3{--bc:#e8590c}.b4{--bc:#9333ea}.b5{--bc:#0284c7}.b6{--bc:#dc2626}.b7{--bc:#ca8a04}.b8{--bc:#16a34a}
+/* flow & curve */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:12px 0}
+.flow .st{flex:1 1 150px;background:var(--panel);border:2px solid var(--sc,var(--a));border-radius:12px;padding:8px 12px;position:relative}
+.flow .st b{display:block;color:var(--sc,var(--a))}
+.flow .st:not(:last-child)::after{content:"➜";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);z-index:2;background:var(--bg);border-radius:50%}
+.thermo{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:12px 0}
+.thermo div{border-radius:12px;padding:10px;color:#fff;text-align:center;font-size:.9rem}
+.thermo b{display:block;font-size:1.05rem}
+.t1{background:linear-gradient(160deg,#0284c7,#38bdf8)}.t2{background:linear-gradient(160deg,#16a34a,#4ade80)}.t3{background:linear-gradient(160deg,#ca8a04,#f59e0b)}.t4{background:linear-gradient(160deg,#dc2626,#f97316)}
+/* quiz */
+details.q{background:var(--bg);border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:0}
+details.q summary{cursor:pointer;padding:10px 14px;font-weight:600;list-style:none}
+details.q summary::before{content:"❓ "}
+details.q[open] summary{background:var(--ab);color:var(--a);border-radius:10px 10px 0 0}
+details.q div{padding:10px 14px}
+.growth{width:100%;max-width:620px;display:block;margin:10px auto}
+footer{text-align:center;color:var(--muted);padding:30px 16px 50px;font-size:.9rem}
+.hide{display:none!important}
+@media(max-width:900px){.layout{flex-direction:column}nav.side{position:static;max-height:none;flex:none;width:100%}}
+@media print{.toolbar,nav.side{display:none}.layout{display:block}section.lesson{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>🧫 Microbiology Study Guide</h1>
+  <p>Chapter 4 · Prokaryotic Diversity &amp; Cell Structure &nbsp;|&nbsp; Chapter 5 · Prokaryotic Growth &amp; Reproduction</p>
+</header>
+
+<div class="toolbar">
+  <button class="on" data-f="all">All</button>
+  <button data-f="c4">Chapter 4</button>
+  <button data-f="c5">Chapter 5</button>
+  <input id="search" type="search" placeholder="🔍 Search a word (e.g. flagella)…">
+  <button id="theme">🌓 Dark / Light</button>
+  <span class="progress" id="prog">Studied: 0 / 9</span>
+</div>
+
+<div class="layout">
+<nav class="side" id="side">
+  <h4 class="n4">Chapter 4</h4>
+  <a href="#s41">4.1 Prokaryotic Diversity</a>
+  <a href="#s42">4.2 Shapes &amp; Arrangements</a>
+  <a href="#s43">4.3 Overview of Cell Structure</a>
+  <a href="#s44">4.4 External Structures</a>
+  <a href="#s45">4.5 The Cell Envelope</a>
+  <a href="#s46">4.6 Cytoplasm &amp; Internal Structures</a>
+  <h4 class="n5">Chapter 5</h4>
+  <a href="#s51">5.1 Prokaryotic Reproduction</a>
+  <a href="#s52">5.2 Prokaryotic Growth</a>
+  <a href="#s53">5.3 Culture Media &amp; Growth Measurements</a>
+  <h4 style="color:var(--a)">Extras</h4>
+  <a href="#mapall">Master Mind Map</a>
+  <a href="#quiz">Self-test Questions</a>
+</nav>
+
+<main>
+
+<!-- ============ MASTER MIND MAP ============ -->
+<section class="lesson l4" id="mapall" data-ch="c4 c5" style="--lc:var(--a);--lcb:var(--ab)">
+  <h3>🗺️ Master Mind Map – Chapters 4 &amp; 5</h3>
+  <div class="mm">
+    <div class="mm-title">Big picture</div>
+    <span class="mm-center">PROKARYOTES</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Ch 4 · Diversity (4.1)</b><ul><li>Bacteria (~18 phyla)</li><li>Archaea (extremophiles)</li><li>Bacteria vs Archaea vs Eukarya</li></ul></div>
+      <div class="mm-branch b2"><b>Ch 4 · Shapes (4.2)</b><ul><li>Bacillus (rod)</li><li>Coccus (sphere)</li><li>Spiral (vibrio, spirillum, spirochete)</li></ul></div>
+      <div class="mm-branch b3"><b>Ch 4 · Structure (4.3–4.6)</b><ul><li>External: pili, flagella, glycocalyx</li><li>Envelope: wall + membrane</li><li>Internal: nucleoid, plasmids, ribosomes, inclusions, cytoskeleton</li></ul></div>
+      <div class="mm-branch b4"><b>Ch 5 · Reproduction (5.1)</b><ul><li>Binary fission</li><li>Generation time</li></ul></div>
+      <div class="mm-branch b5"><b>Ch 5 · Growth (5.2)</b><ul><li>4 growth phases</li><li>Endospores</li><li>Temperature, O₂, pH, pressure, osmotic</li></ul></div>
+      <div class="mm-branch b6"><b>Ch 5 · Culture &amp; Measure (5.3)</b><ul><li>Media types</li><li>Pure cultures</li><li>Counting methods</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHAPTER 4 ================= -->
+<div class="chapter-banner c4" data-ch="c4"><h2>📘 Chapter 4 – Prokaryotic Diversity &amp; Cell Structure</h2><p>Lessons 4.1 → 4.6</p></div>
+
+<!-- 4.1 -->
+<section class="lesson l4" id="s41" data-ch="c4">
+  <h3>4.1 Prokaryotic Diversity <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Prokaryotic diversity</div>
+    <span class="mm-center">Prokaryotic Diversity</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Domain Bacteria</b><ul><li>~18 phyla identified (culturing / sequencing)</li><li>Proteobacteria</li><li>Firmicutes (+ Mycoplasma)</li><li>Actinobacteria</li><li>Cyanobacteria</li><li>Chlamydiae</li><li>Hyperthermophilic bacteria</li></ul></div>
+      <div class="mm-branch b2"><b>Domain Archaea</b><ul><li>Many are extremophiles</li><li>Euryarchaeota: methanogens, extreme halophiles, thermoacidophiles</li><li>Crenarchaeota: hot, acidic habitats</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Comparison of the three domains</h4>
+  <div class="tw"><table>
+    <tr><th>Characteristic</th><th>Bacteria</th><th>Archaea</th><th>Eukarya</th></tr>
+    <tr><td>Cell nucleus</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+    <tr><td>Chromosome form</td><td>Single, circular</td><td>Single, circular</td><td>Multiple, linear</td></tr>
+    <tr><td>Histone proteins present</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+    <tr><td>Peptidoglycan cell wall</td><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td></tr>
+    <tr><td>Membrane lipids</td><td>Ester-linked</td><td>Ether-linked</td><td>Ester-linked</td></tr>
+    <tr><td>Ribosome sedimentation value</td><td>70S</td><td>70S</td><td>80S</td></tr>
+    <tr><td>Ribosome sensitivity to diphtheria toxin</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+    <tr><td>First amino acid in a protein</td><td>Formylmethionine</td><td>Methionine</td><td>Methionine</td></tr>
+    <tr><td>Chlorophyll-based photosynthesis</td><td>Yes (cyanobacteria)</td><td class="no">No</td><td>Yes (algae)</td></tr>
+    <tr><td>Growth above 80°C</td><td class="yes">Yes</td><td class="yes">Yes</td><td class="no">No</td></tr>
+    <tr><td>Growth above 100°C</td><td class="no">No</td><td class="yes">Yes</td><td class="no">No</td></tr>
+  </table></div>
+  <div class="key"><b>Memory trick:</b> Archaea are <i>in-between</i> – they look like Bacteria structurally (no nucleus, circular chromosome, 70S) but share histones, methionine start and diphtheria-toxin sensitivity with Eukarya.</div>
+
+  <h4>B. The Domain Bacteria</h4>
+  <ul>
+    <li>Contains some of the <mark class="k">best-studied prokaryotes</mark>; classified into several major phyla – <b>about 18 phyla</b> identified from culturing or nucleotide sequencing.</li>
+    <li>Adapted to diverse environments: <b>air, soil, water</b>, and in enormous numbers on the surfaces of virtually all plants and animals. Isolated from Arctic ice, thermal hot springs, the fringes of space, and animal tissues.</li>
+  </ul>
+
+  <div class="tw" style="--lc:var(--c4)"><table>
+    <tr><th>Phylum</th><th>Key properties</th><th>Genera / examples</th><th>Diseases / importance</th></tr>
+    <tr><td><span class="pill t">Proteobacteria</span></td><td>Largest &amp; most diverse group of species; many <b>gram-negative</b>. Mitochondria of Eukarya likely derived through <b>endosymbiosis</b> from a proteobacterial ancestor.</td><td><i>Escherichia, Shigella, Salmonella, Neisseria, Yersinia, Vibrio</i></td><td>Gonorrhea (<i>Neisseria</i>), plague (<i>Yersinia</i>), cholera (<i>Vibrio</i>)</td></tr>
+    <tr><td><span class="pill o">Rickettsiae</span> <small>(in the Proteobacteria group)</small></td><td>Tiny cells, barely visible with the most powerful light microscope. Transmitted mainly by <b>arthropods</b>. Cultivated only in <b>living tissues</b> (e.g., fertilized eggs).</td><td>Rickettsia species</td><td>Rocky Mountain spotted fever, typhus fever</td></tr>
+    <tr><td><span class="pill a">Firmicutes</span></td><td>Clade of mostly <b>gram-positive</b> species; <i>firm</i> = "strong", <i>cuti</i> = "skin" → thick cell wall.</td><td><i>Bacillus, Clostridium, Staphylococcus, Streptococcus</i></td><td>Anthrax (<i>Bacillus</i>), botulism (<i>Clostridium</i>); staph &amp; strep: mild to life-threatening diseases</td></tr>
+    <tr><td><span class="pill p">Mycoplasma</span> <small>(listed with Firmicutes)</small></td><td><b>Lacks a cell wall</b>. Possibly the <b>smallest</b> bacterial cell.</td><td><i>Mycoplasma</i></td><td>One species causes a form of pneumonia</td></tr>
+    <tr><td><span class="pill g">Actinobacteria</span></td><td>Include the <b>actinomycetes</b>: form a system of <b>branched filaments</b> resembling fungal growth.</td><td><i>Streptomyces, Mycobacterium</i></td><td><i>Streptomyces</i> = source of important antibiotics; <i>Mycobacterium</i> species → tuberculosis</td></tr>
+    <tr><td><span class="pill b">Cyanobacteria</span></td><td>Formerly "blue-green algae". Pigments can be black, yellow, green or red. Photosynthesis similar to unicellular algae. <b>Fix atmospheric nitrogen</b>.</td><td>(Red Sea redness = blooms of red-pigmented cyanobacteria)</td><td>Blooms turn water pea-soup green with foul odor; some species make <b>toxins</b> harmful to fish and humans</td></tr>
+    <tr><td><span class="pill r">Chlamydiae</span></td><td>Roughly <b>half the size of rickettsiae</b>; cannot be seen with a light microscope; cultivated only <b>within living cells</b>. Most are pathogens.</td><td>Chlamydia</td><td>One species causes the gonorrhea-like disease <b>chlamydia</b></td></tr>
+    <tr><td><span class="pill y">Hyperthermophilic bacteria</span> <small>(phylum name not shown in the text)</small></td><td>Grow at <b>high temperatures</b>.</td><td><i>Aquifex, Thermotoga</i></td><td>Found in "earthly cauldrons" such as hot springs</td></tr>
+  </table></div>
+
+  <div class="grid2">
+    <div class="card o"><h5>Cyanobacteria – extra details</h5><ul>
+      <li>Unique among prokaryotes: photosynthesis like unicellular algae</li>
+      <li>Their evolution caused the <b>"oxygen revolution"</b> on the young Earth</li>
+      <li><b>Chloroplasts</b> probably derived by endosymbiosis with a cyanobacterial ancestor</li>
+      <li>Blooms in nutrient-rich lakes/bays; swimming pools and aquaria bloom if algaecide is not used regularly</li></ul></div>
+    <div class="card a"><h5>Endosymbiosis summary</h5><ul>
+      <li>Mitochondria ← ancestor of <b>Proteobacteria</b></li>
+      <li>Chloroplasts ← ancestor of <b>Cyanobacteria</b></li></ul></div>
+  </div>
+
+  <h4>C. The Domain Archaea – many extremophiles</h4>
+  <p><b>Extremophiles</b> grow best at environmental extremes: very high temperatures, high salt concentrations, or extremes of pH. Many live deep in oceans, though some genera thrive under modest conditions. Archaeal genera fit into <b>two major phyla</b>.</p>
+  <div class="tw" style="--lc:var(--p)"><table>
+    <tr><th>Phylum</th><th>Group</th><th>Properties</th></tr>
+    <tr><td rowspan="3"><span class="pill p">Euryarchaeota</span><br><small>varying physiologies</small></td><td><b>Methanogens</b> <small>(methano = methane; gen = produce)</small></td><td>Killed by oxygen → live where O₂ is absent. Methane production is key to energy metabolism. Release <b>&gt; 2 billion tons</b> of methane per year; about <b>one third</b> from archaea in the <b>rumen</b> of cows.</td></tr>
+    <tr><td><b>Extreme halophiles</b> <small>(halo = salt; phil = loving)</small></td><td>Unlike methanogens they <b>require oxygen</b> for energy metabolism and need <b>high NaCl</b> to grow. Often have <b>pink pigments</b> (easy identification). Some live in lakes with pH &gt; 11.</td></tr>
+    <tr><td><b>Thermoacidophiles</b></td><td>Grow optimally at <b>high temperature</b> but <b>extremely low pH</b>.</td></tr>
+    <tr><td><span class="pill p">Crenarchaeota</span></td><td>Hot, acidic environments</td><td>Hot sulfur springs (~<b>75°C</b>, pH <b>2–3</b>) and <b>volcanic vents</b> (hot, very acidic).</td></tr>
+  </table></div>
+</section>
+
+<!-- 4.2 -->
+<section class="lesson l4" id="s42" data-ch="c4">
+  <h3>4.2 The Shapes and Arrangements of Prokaryotic Cells <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+  <p>Most prokaryotic cells have a <b>rod, spherical, or spiral</b> shape and are organized into a specific cellular arrangement.</p>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Shapes &amp; arrangements</div>
+    <span class="mm-center">Cell shape</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Bacillus (rod)</b><ul><li>0.5 – 20 µm</li><li>Single</li><li>Streptobacillus (chain)</li></ul></div>
+      <div class="mm-branch b3"><b>Coccus (sphere)</b><ul><li>0.5 – 1.0 µm</li><li>Diplococcus (pair)</li><li>Streptococcus (chain)</li><li>Tetrad (4, square)</li><li>Sarcina (8, cube)</li><li>Staphylococcus (cluster)</li></ul></div>
+      <div class="mm-branch b2"><b>Spiral</b><ul><li>1 – 100 µm</li><li>Vibrio (comma)</li><li>Spirillum (rigid, flagella)</li><li>Spirochete (flexible, axial filaments)</li></ul></div>
+      <div class="mm-branch b4"><b>Other shapes</b><ul><li><i>Caulobacter</i>: appendages</li><li><i>Nocardia</i>: branching filaments</li><li>Some archaea: square, star</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Bacillus (rod-shaped)</h4>
+  <ul>
+    <li>Plural <b>bacilli</b>; cylindrical cell from <b>0.5 µm to 20 µm</b> long.</li>
+    <li>Slender: <i>Salmonella typhi</i> (typhoid fever) · Rectangular with squared ends: <i>Bacillus anthracis</i> (anthrax) · Club-shaped: <i>Corynebacterium diphtheriae</i> (diphtheria).</li>
+    <li>Most occur singly; some form a long chain = <b>streptobacillus</b> (strepto = chains).</li>
+  </ul>
+  <div class="note">"Bacillus" has <b>two meanings</b>: (1) a rod-shaped cell, and (2) a genus name (<i>Bacillus</i>).</div>
+
+  <h4>B. Coccus (spherical)</h4>
+  <p>Plural <b>cocci</b> (kokkos = "berry"). Quite small: <b>0.5–1.0 µm</b> diameter. Usually round but may be oval, elongated or indented. Many stay together after division and form characteristic arrangements.</p>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Arrangement</th><th>Description</th><th>Examples &amp; importance</th></tr>
+    <tr><td>Diplococcus</td><td>Cocci remaining in a <b>pair</b> after reproducing</td><td><i>Neisseria gonorrhoeae</i> (gonorrhea); <i>N. meningitidis</i> (one type of bacterial meningitis)</td></tr>
+    <tr><td>Streptococcus</td><td>Cocci in a <b>chain</b></td><td><i>S. pyogenes</i> (strep throat); <i>S. mutans</i> (tooth decay); <i>S. lactis</i> (harmless – yogurt and dairy products)</td></tr>
+    <tr><td>Tetrad</td><td><b>4</b> cocci forming a <b>square</b></td><td>—</td></tr>
+    <tr><td>Sarcina</td><td>Cube-like packet of <b>8</b> cocci (sarcina = "bundle")</td><td><i>Micrococcus luteus</i> – common inhabitant of the skin</td></tr>
+    <tr><td>Staphylococcus</td><td>Cocci dividing randomly → <b>irregular grape-like cluster</b> (staphylo = "cluster")</td><td><i>Staphylococcus aureus</i>: food poisoning, toxic shock syndrome, several skin infections ("staph" infections)</td></tr>
+  </table></div>
+
+  <h4>C. Spiral</h4>
+  <div class="tw" style="--lc:var(--p)"><table>
+    <tr><th>Form</th><th>Features</th><th>Example</th></tr>
+    <tr><td>Vibrio</td><td>Curved rods resembling <b>commas</b></td><td><i>Vibrio cholerae</i> (cholera)</td></tr>
+    <tr><td>Spirillum (pl. spirilla)</td><td><b>Helical</b>; <b>thick, rigid</b> cell wall; <b>flagella</b> assist movement</td><td>—</td></tr>
+    <tr><td>Spirochete</td><td><b>Thin, flexible</b> wall; no flagella in the traditional sense; movement by <b>contractions of axial filaments</b> running along the cell</td><td><i>Treponema pallidum</i> (syphilis)</td></tr>
+  </table></div>
+  <ul><li>Spiral cells are <b>1 µm to 100 µm</b> long. Most spiral-shaped cells are <b>not</b> organized into a specific arrangement.</li></ul>
+
+  <h4>D. Other shapes</h4>
+  <ul><li><i>Caulobacter</i> – <b>appendaged</b> cells</li><li><i>Nocardia</i> – <b>branching filaments</b></li><li>Some archaeal species – <b>square and star</b> shapes</li></ul>
+  <details class="q"><summary>Textbook question: Propose why spiral-shaped cells are not organized into a specific arrangement of cells</summary><div>This question is open-ended in the book (no answer given in your text). Think about it using the text: cocci form arrangements because the cells <i>stay attached after division</i> in a pattern set by the division plane. Spiral cells are <b>motile</b> (flagella or axial filaments) and tend to separate after division – use this as your own reasoning, and check your instructor's answer.</div></details>
+</section>
+
+<!-- 4.3 -->
+<section class="lesson l4" id="s43" data-ch="c4">
+  <h3>4.3 An Overview to Prokaryotic Cell Structure <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+  <p>Cell organization is centered on <b>three specific processes</b>:</p>
+  <div class="flow">
+    <div class="st" style="--sc:var(--c4)"><b>1. Sensing &amp; responding to the exterior</b>Most cells have a cell wall → "<b>external structures</b>" needed to sense the environment and respond to it or to other cells.</div>
+    <div class="st" style="--sc:var(--a)"><b>2. Compartmentation of metabolism</b>Metabolism must be <b>segregated</b> from the exterior yet able to <b>transport materials</b> to and from it (the <b>cell envelope</b>).</div>
+    <div class="st" style="--sc:var(--c5)"><b>3. Growth &amp; reproduction</b>Complex metabolism occurs in the aqueous <b>cytoplasm</b>; these processes exist as <b>internal structures</b> / subcompartments localized to areas of the cytoplasm.</div>
+  </div>
+  <div class="mm">
+    <div class="mm-title">Concept map – Prokaryotic cell structure (not all cells have all structures)</div>
+    <span class="mm-center">Prokaryotic cell</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>External structures (4.4)</b><ul><li>Pili / fimbriae</li><li>Flagella (+ endoflagella)</li><li>Gliding motility</li><li>Glycocalyx: capsule / slime layer</li></ul></div>
+      <div class="mm-branch b2"><b>Cell envelope (4.5)</b><ul><li>Cell wall (peptidoglycan; archaeal walls)</li><li>Cell membrane (fluid mosaic)</li></ul></div>
+      <div class="mm-branch b3"><b>Internal structures (4.6)</b><ul><li>Cytoplasm / cytosol</li><li>Nucleoid</li><li>Plasmids</li><li>Ribosomes</li><li>Inclusion bodies, gas vesicles, magnetosomes</li><li>Cytoskeleton</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4.4 -->
+<section class="lesson l4" id="s44" data-ch="c4">
+  <h3>4.4 External Prokaryotic Cell Structures <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – External structures</div>
+    <span class="mm-center">External structures</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Pili (fimbriae)</b><ul><li>Protein fibers</li><li>Adhesins → attachment</li><li>Biofilms / microcolonies</li><li>Conjugation pili</li></ul></div>
+      <div class="mm-branch b2"><b>Flagella</b><ul><li>Filament + hook + basal body</li><li>Rotation by H⁺ flow</li><li>Run / tumble</li><li>Chemotaxis, phototaxis, aerotaxis</li></ul></div>
+      <div class="mm-branch b3"><b>Other motility</b><ul><li>Endoflagella (spirochetes)</li><li>Gliding (cyanobacteria, myxobacteria)</li></ul></div>
+      <div class="mm-branch b4"><b>Glycocalyx</b><ul><li>Capsule (thick, bound)</li><li>Slime layer (thin, diffuse)</li><li>Protects, attaches, evades immunity</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Pili – protein fibers extending from the surface</h4>
+  <ul>
+    <li>Numerous <b>short, thin, proteinaceous fibers</b> (sing. <i>pilus</i> = "hair") on the surface of most <b>gram-negative</b> bacteria.</li>
+    <li>Fibers are <b>scaffolding</b> for specific adhesive molecules called <b>adhesins</b>.</li>
+    <li><mark class="k">Function:</mark> attach cells to surfaces to form <b>biofilms</b>, or (in pathogens) to form <b>microcolonies</b> on human cell and tissue surfaces.</li>
+    <li><i>Neisseria gonorrhoeae</i> adhesins anchor to the <b>urogenital tract</b>; <i>Bordetella pertussis</i> (whooping cough) adhesins bind the <b>upper respiratory tract</b>.</li>
+    <li><b>Conjugation pili</b>: contact between appropriate cells → transfer of genetic material from <b>donor to recipient</b> (conjugation).</li>
+    <li>Also present on some gram-positive species: <i>Corynebacterium diphtheriae</i>, group B <i>Streptococcus</i>.</li>
+    <li><b>Pili = fimbriae</b> (sing. fimbria = "fibers") – used interchangeably.</li>
+  </ul>
+
+  <h4>B. Flagellar motility</h4>
+  <ul>
+    <li>Flagellum (pl. flagella) = a remarkable "<b>nanomachine</b>". One or more flagella at one or both ends of the cell (depending on species).</li>
+    <li>Length <b>10–20 µm</b> (many times the cell diameter); only about <b>20 nm</b> thick.</li>
+  </ul>
+  <div class="grid2">
+    <div class="card t"><h5>Structure in Bacteria</h5><ul>
+      <li><b>Filament</b> – hollow, long rigid protein strands</li>
+      <li><b>Hook</b> – attaches filament to basal body</li>
+      <li><b>Basal body</b> – anchored in cell membrane &amp; wall; central rod + enclosing rings</li>
+      <li><b>Gram-positive:</b> 1 ring in membrane + 1 ring in wall (2 total)</li>
+      <li><b>Gram-negative:</b> a pair of rings in membrane + a pair in wall (4 total)</li></ul></div>
+    <div class="card o"><h5>Energy &amp; Archaea</h5><ul>
+      <li>Rotation energy from <b>diffusion of protons (H⁺) into the cell</b> through proteins associated with the basal body</li>
+      <li>Up to <b>1,500 rpm</b> → drives the cell forward</li>
+      <li><b>Archaea:</b> flagellar protein composition &amp; structure <b>differ</b> from Bacteria; motility appears similar</li></ul></div>
+  </div>
+
+  <h5>Chemotaxis – behavioral response to chemicals</h5>
+  <div class="tw" style="--lc:var(--c4)"><table>
+    <tr><th>Flagellar rotation</th><th>Cell movement</th><th>Notes</th></tr>
+    <tr><td>Counterclockwise</td><td><b>"Run"</b> – straight ahead in short bursts</td><td>Default state when there is <b>no gradient</b></td></tr>
+    <tr><td>Clockwise</td><td><b>"Tumble"</b> – random reorientation for ~1 second</td><td>Then the motor reverses and a new run starts in a new direction</td></tr>
+    <tr><td colspan="3"><b>With an attractant (e.g., sugar):</b> longer runs + fewer tumbles → biased movement up the concentration gradient (toward the attractant).</td></tr>
+  </table></div>
+  <ul><li>Similar behaviors: <b>phototaxis</b> (toward light, photosynthetic prokaryotes) and <b>aerotaxis</b> (toward oxygen).</li></ul>
+
+  <h4>C. Other types of motility</h4>
+  <div class="grid2">
+    <div class="card p"><h5>Endoflagella / axial filaments (spirochetes)</h5><ul>
+      <li>Flagella extend from one or both poles but <b>fold back along the cell body</b></li>
+      <li>Endoflagella + cell body are surrounded by an <b>outer sheath membrane</b></li>
+      <li>Motility from <b>torsion</b> generated by flagellar rotation</li>
+      <li>Less regular and more <b>jerky</b> than flagellar motility</li></ul></div>
+    <div class="card g"><h5>Gliding motility</h5><ul>
+      <li>Movement <b>without flagella</b> across a solid surface</li>
+      <li>Along the <b>long axis</b> of bacillus- or filamentous-shaped cells</li>
+      <li>Usually <b>slower</b> than flagellar motility</li>
+      <li>Examples: <b>cyanobacteria</b> and <b>myxobacteria</b></li></ul></div>
+  </div>
+
+  <h4>D. The glycocalyx</h4>
+  <p>Most prokaryotes secrete an adhering layer of <b>polysaccharides</b> (or polysaccharides + small proteins) = <b>glycocalyx</b>. Colonies with a glycocalyx look <b>moist and glistening</b>.</p>
+  <div class="tw" style="--lc:var(--b)"><table>
+    <tr><th>Type</th><th>Description</th></tr>
+    <tr><td>Capsule</td><td>Layer is <b>thick</b> and <b>covalently bound</b> to the cell</td></tr>
+    <tr><td>Slime layer</td><td><b>Thinner, diffuse</b> polysaccharides; usually a mass of tangled fibers of <b>dextran</b> that attach the cell to tissue surfaces</td></tr>
+  </table></div>
+  <div class="grid2">
+    <div class="card b"><h5>Functions</h5><ul>
+      <li><b>Buffer</b> between cell and environment</li>
+      <li><b>Protects from desiccation</b> (high water content)</li>
+      <li><b>Attachment</b> to surfaces – e.g., <i>V. cholerae</i> to the intestinal wall</li>
+      <li><b>Evades the immune system</b> – <i>Streptococcus pneumoniae</i> (bacterial pneumonia) and <i>Bacillus anthracis</i> can't be easily engulfed by white blood cells (phagocytosis)</li></ul></div>
+    <div class="card y"><h5>Biofilms &amp; food spoilage</h5><ul>
+      <li><i>S. mutans</i> → <b>dental plaque</b> = a biofilm on the tooth</li>
+      <li>Biofilm: <b>carbohydrate matrix</b> binds microcolonies; <b>water channels</b> deliver nutrients &amp; remove waste</li>
+      <li><i>Alcaligenes viscolactis</i> slime → <b>"ropy milk"</b> (thick, stringy)</li>
+      <li>Bread can become ropy if contaminated with slime-producing <i>Bacillus subtilis</i></li></ul></div>
+  </div>
+</section>
+
+<!-- 4.5 -->
+<section class="lesson l4" id="s45" data-ch="c4">
+  <h3>4.5 The Cell Envelope <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+  <p>The <b>cell envelope</b> = cell wall + cell membrane. The wall is relatively <b>porous</b>; the membrane <b>regulates transport</b> of nutrients and metabolic products.</p>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Cell envelope</div>
+    <span class="mm-center">Cell envelope</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Gram-positive wall</b><ul><li>Thick peptidoglycan (25 nm)</li><li>Teichoic acids</li><li>Retains crystal violet</li></ul></div>
+      <div class="mm-branch b3"><b>Gram-negative wall</b><ul><li>Thin single peptidoglycan layer</li><li>Outer membrane (LPS, porins)</li><li>Periplasmic space</li></ul></div>
+      <div class="mm-branch b4"><b>Archaeal wall</b><ul><li>No peptidoglycan</li><li>Pseudopeptidoglycan (NAT)</li><li>S-layer</li></ul></div>
+      <div class="mm-branch b2"><b>Cell membrane</b><ul><li>Fluid mosaic bilayer</li><li>40% phospholipid / 60% protein</li><li>Facilitated diffusion / active transport</li><li>Archaea: monolayer</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Functions of the cell wall</h4>
+  <ul>
+    <li>Acts as an <b>exoskeleton</b> – protects the cell from injury and damage.</li>
+    <li>With the cytoskeleton, <b>maintains cell shape</b> and reinforces the envelope against <b>osmotic pressure</b>.</li>
+    <li>Most microbes live in a <b>hypertonic-inside</b> condition (more dissolved material inside than outside) → water diffuses <b>inward</b> → osmotic pressure. <mark class="k">Without a wall the cell would rupture (lysis).</mark></li>
+  </ul>
+
+  <h4>B. Peptidoglycan (murein) – the bacterial wall polymer</h4>
+  <ul>
+    <li>Chains of <b>disaccharides</b> (glycan strands) <b>cross-linked by peptide bridges</b>.</li>
+    <li>Each disaccharide = <b>NAG</b> (N-acetylglucosamine) + <b>NAM</b> (N-acetylmuramic acid).</li>
+    <li>The carbohydrate backbone can occur in multiple layers connected by <b>side chains of four amino acids</b> and peptide cross-bridges.</li>
+  </ul>
+
+  <h4>C. Gram-positive vs Gram-negative walls</h4>
+  <div class="tw" style="--lc:var(--c4)"><table>
+    <tr><th>Feature</th><th>Gram-positive</th><th>Gram-negative</th></tr>
+    <tr><td>Peptidoglycan</td><td><b>Very thick</b> (~25 nm), multiple layers cross-linked within and between layers</td><td><b>Thin</b>, two-dimensional – a <b>single layer</b>, cross-linked only between strands in that layer</td></tr>
+    <tr><td>Teichoic acid</td><td><b>Present</b> (anionic polysaccharide derivative; bound to NAM)</td><td><b>Absent</b></td></tr>
+    <tr><td>Outer membrane</td><td class="no">No</td><td class="yes">Yes (unique feature)</td></tr>
+    <tr><td>Periplasmic space</td><td>—</td><td>Gap between outer and cell membrane; gel-like; contains <b>digestive enzymes</b> &amp; <b>transport proteins</b>; peptidoglycan lies here</td></tr>
+    <tr><td>Gram stain</td><td>Retains <b>crystal violet</b> (thick wall)</td><td>—</td></tr>
+    <tr><td>Resistance to antimicrobials</td><td>—</td><td>More resistant to antimicrobial agents, dyes, disinfectants, lysozyme (porins block large molecules)</td></tr>
+  </table></div>
+
+  <div class="grid2">
+    <div class="card t"><h5>Teichoic acids (gram-positive)</h5><ul>
+      <li>Wall teichoic acids are bound to NAM</li>
+      <li><b>Essential for viability</b> – deleting synthesis genes → cell death</li>
+      <li>Function still unclear; may maintain <b>surface charge</b>, control <b>autolytic enzymes</b>, and/or maintain <b>permeability</b> of the wall</li></ul></div>
+    <div class="card o"><h5>Gram-negative outer membrane</h5><ul>
+      <li><b>Inner half:</b> phospholipids (like the cell membrane)</li>
+      <li><b>Outer half:</b> <b>lipopolysaccharide (LPS)</b> = <b>O-polysaccharide</b> + <b>lipid A</b></li>
+      <li>O-polysaccharide identifies <b>variants</b> (e.g., strain O157:H7 of <i>E. coli</i>)</li>
+      <li><b>Lipid A</b> is released on cell death → <b>endotoxin</b>, toxic if ingested (Chapter 18)</li>
+      <li><b>Porins:</b> proteins forming pores for <b>small molecules</b>; larger molecules can't pass</li></ul></div>
+  </div>
+
+  <h4>D. The archaeal cell wall</h4>
+  <ul>
+    <li><b>No peptidoglycan</b> → cells are <b>resistant to lysozyme and penicillin</b>.</li>
+    <li>Some have <b>pseudopeptidoglycan</b>: NAM replaced by <b>NAT</b> (N-acetyltalosamine uronic acid).</li>
+    <li>Others: walls of <b>polysaccharide, protein, or both</b>.</li>
+    <li>Most common: the <b>S-layer</b> – hexagonal pattern of protein or glycoprotein self-assembling into a <b>crystalline lattice 5–25 nm thick</b>.</li>
+    <li>Function is the same as in bacteria: <b>mechanical support</b> and prevention of <b>osmotic lysis</b>.</li>
+  </ul>
+
+  <h4>E. The cell (plasma) membrane</h4>
+  <div class="grid2">
+    <div class="card a"><h5>Structure – fluid mosaic model</h5><ul>
+      <li>Universal structure separating external from cytoplasmic environment; only <b>water</b> diffuses slowly across (small, uncharged)</li>
+      <li>Bacterial membrane: ~<b>5 nm</b> thick, <b>40% phospholipid + 60% protein</b></li>
+      <li>Fluid – consistency of <b>olive oil</b>; lipids &amp; proteins move laterally → <b>fluid mosaic model</b></li>
+      <li><b>Phospholipid bilayer</b>: charged phosphate <b>hydrophilic head</b> + two <b>hydrophobic fatty-acid tails</b>; tails form the <b>permeability barrier</b></li></ul></div>
+    <div class="card r"><h5>Disruption of the membrane</h5><ul>
+      <li><b>Polymyxin</b> pokes holes in the bilayer</li>
+      <li>Some <b>detergents and alcohols</b> dissolve the bilayer</li>
+      <li>Result: cytoplasm leaks out → <b>cell lysis</b> and death</li></ul></div>
+  </div>
+  <h5>Membrane proteins – functions</h5>
+  <ul>
+    <li><b>Enzymes</b> for cell-wall synthesis or energy metabolism (prokaryotes lack mitochondria → the membrane performs part of that function).</li>
+    <li><b>Anchor DNA</b> to the membrane during replication.</li>
+    <li><b>Receptors</b> of chemical information – sense environmental changes and trigger responses.</li>
+  </ul>
+  <h5>Transport across the membrane</h5>
+  <div class="tw" style="--lc:var(--g)"><table>
+    <tr><th>Process</th><th>Energy?</th><th>Direction</th><th>Details</th></tr>
+    <tr><td>Facilitated diffusion (passive)</td><td class="no">No</td><td>Down the concentration gradient (high → low)</td><td>Integral membrane proteins facilitate movement</td></tr>
+    <tr><td>Active transport</td><td class="yes">Yes</td><td>Against the gradient</td><td>Membrane proteins act as "pumps"; establish different solute concentrations inside/outside; also transport large molecules such as proteins that can't freely diffuse</td></tr>
+  </table></div>
+
+  <h5>Archaeal membranes differ</h5>
+  <ul>
+    <li>Lipid tails are attached to glycerol differently (<b>ether-linked</b> vs ester-linked in Bacteria/Eukarya).</li>
+    <li>No typical fatty acid tails – instead <b>repeating five-carbon units</b> form tails longer than fatty acids.</li>
+    <li>Tails of adjacent sides are bonded together → a <b>lipid monolayer</b> rather than a bilayer.</li>
+  </ul>
+</section>
+
+<!-- 4.6 -->
+<section class="lesson l4" id="s46" data-ch="c4">
+  <h3>4.6 The Cell Cytoplasm and Internal Structures <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Internal structures</div>
+    <span class="mm-center">Cytoplasm</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Nucleoid</b><ul><li>No membrane</li><li>1 circular chromosome</li><li>Haploid</li></ul></div>
+      <div class="mm-branch b2"><b>Plasmids</b><ul><li>5–100 genes</li><li>Independent replication</li><li>R plasmids</li></ul></div>
+      <div class="mm-branch b3"><b>Ribosomes</b><ul><li>70S = 30S + 50S</li><li>Antibiotic targets</li></ul></div>
+      <div class="mm-branch b4"><b>Inclusions &amp; vesicles</b><ul><li>Glycogen, sulfur, lipid</li><li>Volutin</li><li>Gas vesicles</li><li>Magnetosomes</li></ul></div>
+      <div class="mm-branch b5"><b>Cytoskeleton</b><ul><li>Tubulin homolog</li><li>Actin homologs</li><li>Crescentin</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Cytoplasm</h4>
+  <p>Enclosed by the cell membrane; the compartment where <b>most growth and metabolism occur</b>. It consists of the <b>cytosol</b> – a semifluid mass of <b>proteins, amino acids, sugars, nucleotides, salts, vitamins, and ions</b>.</p>
+
+  <h4>B. The nucleoid &amp; genome</h4>
+  <ul>
+    <li><b>Nucleoid</b> = diffuse chromosome region; <mark class="k">no covering or membrane</mark>; a central subcompartment where <b>DNA aggregates</b> and <b>ribosomes are absent</b>.</li>
+    <li>Usually a <b>single chromosome</b> (closed loop of DNA and protein, with few exceptions).</li>
+    <li>Most cells have one copy of each gene → <b>genetically haploid</b>. Nucleoid and chromosome <b>do not undergo mitosis</b>, and with one gene set they <b>cannot undergo meiosis</b>.</li>
+    <li><b>Genome</b> = complete set of genes. <i>E. coli</i> (mid-size range): about <b>4,300 genes</b> → some <b>2,000 different proteins</b>. Genes determine which proteins/enzymes (and metabolic reactions) the cell can make.</li>
+  </ul>
+
+  <h4>C. Plasmids</h4>
+  <ul>
+    <li>Smaller DNA molecules; about <b>one-tenth</b> the size of the chromosome; stable, <b>extrachromosomal</b> closed loops with <b>5 to 100 genes</b>.</li>
+    <li>One or more per cell, same or different genes. Contain <b>nonessential</b> genetic information.</li>
+    <li><b>Replicate independently</b> of the chromosome; can be <b>transferred between cells</b> during recombination.</li>
+    <li>Important <b>"vectors"</b> in industrial genetic engineering.</li>
+    <li>Some carry genes for <b>disease-causing toxins</b>; many carry genes for <b>chemical or antibiotic resistance</b> → <b>R plasmids</b> (R = resistance).</li>
+  </ul>
+
+  <h4>D. Ribosomes</h4>
+  <ul>
+    <li><b>Hundreds of thousands</b> of nearly spherical particles → granular appearance in electron microscope.</li>
+    <li>Size measured by settling rate in a centrifuge – <b>Svedberg units (S)</b>. Prokaryotic ribosomes are <b>70S</b> = <b>30S</b> small subunit + <b>50S</b> large subunit (built from RNA and protein).</li>
+    <li>Antibiotics such as <b>streptomycin</b> and <b>tetracycline</b> prevent prokaryotic ribosomes from carrying out protein synthesis.</li>
+  </ul>
+
+  <h4>E. Inclusion bodies &amp; other compartments</h4>
+  <div class="tw" style="--lc:var(--c4)"><table>
+    <tr><th>Structure</th><th>Contents / function</th></tr>
+    <tr><td>Inclusion bodies</td><td>Store nutrients or monomers for cellular structures. Examples: granules of <b>glycogen</b> (polysaccharide), globules of elemental <b>sulfur</b>, <b>lipid</b>. Some help <b>identify pathogens</b>.</td></tr>
+    <tr><td>Metachromatic granules (volutin)</td><td>Deposits of <b>polyphosphate</b> (long chains of inorganic phosphate) – e.g., in <b>diphtheria bacilli</b></td></tr>
+    <tr><td>Gas vesicles</td><td>Cytoplasmic compartments with a <b>water-tight protein shell</b>; <b>decrease cell density</b> → generate and regulate <b>buoyancy</b> (aquatic and marine prokaryotes float on the surface)</td></tr>
+    <tr><td>Magnetosomes</td><td>Mentioned in the text (details not included in your file)</td></tr>
+  </table></div>
+
+  <h4>F. The prokaryotic "cytoskeleton"</h4>
+  <div class="grid2">
+    <div class="card a"><h5>Tubulin homolog</h5>The <b>first</b> prokaryotic cytoskeletal protein discovered. Forms filaments similar to microtubules, but they <b>do not assemble into microtubules</b>.</div>
+    <div class="card g"><h5>Actin homologs</h5>Very similar 3-D structure to eukaryotic actin. Filaments help determine <b>cell shape</b> in <i>E. coli</i> and <i>B. subtilis</i>; involved in <b>chromosome segregation</b> during division and <b>magnetosome formation</b>.</div>
+    <div class="card o"><h5>Crescentin</h5>Determines the <b>crescent shape</b> of <i>Caulobacter crescentus</i>. In older, filamentous cells it maintains the <b>helical shape</b> by aligning with the inner cell curvature beneath the cytoplasmic membrane.</div>
+  </div>
+</section>
+
+<!-- ================= CHAPTER 5 ================= -->
+<div class="chapter-banner c5" data-ch="c5"><h2>📙 Chapter 5 – Prokaryotic Growth &amp; Reproduction</h2><p>Lessons 5.1 → 5.3</p></div>
+
+<!-- 5.1 -->
+<section class="lesson l5" id="s51" data-ch="c5">
+  <h3>5.1 Prokaryotic Reproduction <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Reproduction</div>
+    <span class="mm-center">Binary fission</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b3"><b>Steps</b><ul><li>Cell doubles its mass</li><li>DNA replicates &amp; separates</li><li>Cytokinesis at midcell</li><li>2 identical daughter cells</li></ul></div>
+      <div class="mm-branch b1"><b>Cytokinesis types</b><ul><li>Gram-negative: constriction</li><li>Gram-positive: septum</li></ul></div>
+      <div class="mm-branch b2"><b>Generation time</b><ul><li>S. aureus 30 min</li><li>M. tuberculosis ~15 h</li><li>T. pallidum 33 h</li></ul></div>
+    </div>
+  </div>
+
+  <ul>
+    <li><b>Growth</b> in microbiology = increase in the <b>number of individuals</b> (population size); each cell carries <b>identical genetic instructions</b> of the parent.</li>
+    <li><b>Asexual reproduction</b> maintains genetic constancy while increasing cell numbers.</li>
+    <li>Most prokaryotes reproduce by <b>binary fission</b>, usually after a period of growth where the cell <b>doubles in mass</b>: chromosome replicates → the two DNA molecules separate.</li>
+    <li>Prokaryotes lack a <b>mitotic spindle</b>; segregation involves specialized chromosome-associated proteins (how they ensure accurate segregation is not clearly understood).</li>
+    <li><b>Cytokinesis</b> at midcell = inward pinching of the cell envelope (membrane + wall) → <b>two genetically identical daughter cells</b>.</li>
+  </ul>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Cell type</th><th>How cytokinesis occurs</th><th>Example</th></tr>
+    <tr><td>Gram-negative</td><td><b>Constriction</b> of the cell envelope, followed by cell separation</td><td><i>Escherichia coli</i></td></tr>
+    <tr><td>Gram-positive</td><td>Constriction lets a <b>newly synthesized wall form a septum</b> between daughter cells; separation occurs by <b>dissolution of the septum</b> (slow dissolution → chains of cells)</td><td><i>Bacillus licheniformis</i></td></tr>
+  </table></div>
+  <div class="key">Binary fission seems to confer <b>"immortality"</b>: there is never a moment when the first bacterial cell has died – each mother cell becomes two young daughter cells.</div>
+
+  <h4>Generation time (doubling time)</h4>
+  <p>The interval between successive binary fissions of a cell or population. Under optimal conditions some are very fast, others much slower.</p>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Species</th><th>Optimal generation time</th></tr>
+    <tr><td><i>Escherichia coli</i></td><td><b>15 minutes</b></td></tr>
+    <tr><td><i>Staphylococcus aureus</i></td><td>about <b>30 minutes</b></td></tr>
+    <tr><td><i>Mycobacterium tuberculosis</i> (TB)</td><td>approx. <b>15 hours</b></td></tr>
+    <tr><td><i>Treponema pallidum</i> (syphilis)</td><td><b>33 hours</b></td></tr>
+  </table></div>
+  <ul>
+    <li>If <i>E. coli</i> kept dividing at 15 minutes for <b>36 hours</b>, the cells would cover the Earth's surface – it doesn't happen because of <b>nutrient limitation</b> and loss of ideal physical factors.</li>
+    <li>Generation time helps determine when disease symptoms appear: <b>faster division → shorter incubation period</b>.</li>
+    <li>Figure example: <i>E. coli</i> from <b>1 cell to 2 million cells in 7 hours</b> – a <b>J-shaped</b> growth curve, halted only by depletion of food, waste buildup or another limitation.</li>
+  </ul>
+</section>
+
+<!-- 5.2 -->
+<section class="lesson l5" id="s52" data-ch="c5">
+  <h3>5.2 Prokaryotic Growth <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Prokaryotic growth</div>
+    <span class="mm-center">Prokaryotic growth</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Growth curve</b><ul><li>Lag</li><li>Log (exponential)</li><li>Stationary</li><li>Decline (death)</li></ul></div>
+      <div class="mm-branch b6"><b>Endospores</b><ul><li><i>Bacillus</i>, <i>Clostridium</i></li><li>Dormant, resistant</li><li>Anthrax, botulism, tetanus</li></ul></div>
+      <div class="mm-branch b3"><b>Temperature</b><ul><li>Psychrophiles</li><li>Mesophiles</li><li>Thermophiles</li><li>Hyperthermophiles</li></ul></div>
+      <div class="mm-branch b5"><b>Oxygen</b><ul><li>Obligate aerobes</li><li>Microaerophiles</li><li>Anaerobes (aerotolerant / obligate)</li><li>Facultative</li><li>Capnophiles</li></ul></div>
+      <div class="mm-branch b4"><b>pH</b><ul><li>Neutral optimum</li><li>Acidophiles</li></ul></div>
+      <div class="mm-branch b7"><b>Pressure &amp; osmotic</b><ul><li>Barophiles</li><li>Halophiles</li><li>Salt/sugar preservation</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. The bacterial growth curve – 4 phases</h4>
+  <svg class="growth" viewBox="0 0 620 290" role="img" aria-label="Bacterial growth curve">
+    <rect x="0" y="0" width="620" height="290" rx="14" fill="none"/>
+    <rect x="50" y="20" width="110" height="220" fill="#0284c7" opacity=".12"/>
+    <rect x="160" y="20" width="170" height="220" fill="#16a34a" opacity=".12"/>
+    <rect x="330" y="20" width="140" height="220" fill="#ca8a04" opacity=".15"/>
+    <rect x="470" y="20" width="130" height="220" fill="#dc2626" opacity=".12"/>
+    <line x1="50" y1="240" x2="600" y2="240" stroke="currentColor" stroke-width="2"/>
+    <line x1="50" y1="20" x2="50" y2="240" stroke="currentColor" stroke-width="2"/>
+    <path d="M50 225 C100 225 130 222 160 215 C210 190 260 80 330 55 C380 45 430 45 470 50 C520 80 560 170 600 215" fill="none" stroke="#4f46e5" stroke-width="4"/>
+    <g font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">
+      <text x="105" y="35" fill="#0284c7">A · LAG</text>
+      <text x="245" y="35" fill="#16a34a">B · LOG</text>
+      <text x="400" y="35" fill="#ca8a04">C · STATIONARY</text>
+      <text x="535" y="35" fill="#dc2626">D · DECLINE</text>
+    </g>
+    <g font-size="12" fill="currentColor" text-anchor="middle">
+      <text x="105" y="262">No division</text>
+      <text x="245" y="262">Doubling each generation</text>
+      <text x="400" y="262">Births = deaths</text>
+      <text x="535" y="262">Deaths &gt; births</text>
+      <text x="325" y="282" font-weight="700">Time (hours)</text>
+    </g>
+    <text x="14" y="130" font-size="12" font-weight="700" fill="currentColor" transform="rotate(-90 14 130)" text-anchor="middle">Log of cell number</text>
+  </svg>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Phase</th><th>What happens</th><th>Extra facts</th></tr>
+    <tr><td><span class="pill b">A. Lag</span></td><td><b>No cell divisions</b>; cells <b>adapt</b> to the new environment – grow in size, store nutrients, synthesize enzymes in preparation for fission.</td><td>Length depends on metabolic activity of the remaining cells.</td></tr>
+    <tr><td><span class="pill g">B. Logarithmic (log)</span></td><td><b>Exponential growth</b>: all cells undergo binary fission; numbers double each generation; straight line on a log scale.</td><td>Disease symptoms usually develop here (tissue damage – coughing, fever). Broth becomes <b>turbid</b>; on solid medium visible colonies appear (millions of cells each). <b>Highest antibiotic vulnerability</b> (antibiotics affect actively metabolizing cells).</td></tr>
+    <tr><td><span class="pill y">C. Stationary</span></td><td>Reproductive and death rates <b>equalize</b> → plateau.</td><td>Nutrients become scarce, wastes accumulate, O₂ may be short → many cells die.</td></tr>
+    <tr><td><span class="pill r">D. Decline (death)</span></td><td>Dying cells <b>far exceed</b> new cells (exponential death phase).</td><td>Occurs if nutrients stay limited/exceedingly low. Some species (soil bacteria) escape via <b>endospores</b>.</td></tr>
+  </table></div>
+
+  <h4>B. Endospores</h4>
+  <ul>
+    <li>Produced by a few <b>gram-positive</b> species, especially soil bacteria of the genera <b><i>Bacillus</i></b> and <b><i>Clostridium</i></b> – highly resistant structures (endospores / spores).</li>
+    <li>Normally cells grow, mature and reproduce as <b>vegetative cells</b>. When <b>carbon or nitrogen is limiting</b> and population density reaches a critical mass → <b>stationary phase</b> and <b>sporulation</b>.</li>
+  </ul>
+  <div class="flow">
+    <div class="st" style="--sc:var(--a)"><b>1</b>Chromosome replicates; <b>asymmetric</b> cell division</div>
+    <div class="st" style="--sc:var(--c4)"><b>2</b>Smaller cell = <b>prespore</b> (→ endospore); larger = mother cell</div>
+    <div class="st" style="--sc:var(--c5)"><b>3</b>Prespore contains cytoplasm, DNA and lots of <b>dipicolinic acid</b> (stabilizes proteins &amp; DNA)</div>
+    <div class="st" style="--sc:var(--p)"><b>4</b>Thick <b>peptidoglycan cortex</b>, then protein <b>coats</b></div>
+    <div class="st" style="--sc:var(--r)"><b>5</b>Mother cell lyses → mature <b>dormant</b> endospore released</div>
+  </div>
+  <ul><li>Position in the cell can be <b>terminal</b> (end), <b>subterminal</b> (near the end) or <b>central</b> – used for identification.</li></ul>
+  <div class="grid2">
+    <div class="card r"><h5>Resistance (dormant, few chemical reactions)</h5><ul>
+      <li><b>Heat resistant</b> – viable in <b>boiling water (100°C) for 2 hours</b></li>
+      <li>Survived <b>20 years in 70% ethyl alcohol</b></li>
+      <li>Radiation: humans barely withstand <b>500 rems</b>; endospores survive <b>1 million rems</b></li>
+      <li>Can survive extremely long periods</li>
+      <li><b>Germination:</b> when conditions are favorable the protective layers break down and the spore becomes a vegetative cell</li></ul></div>
+    <div class="card o"><h5>Killing endospores</h5><ul>
+      <li>Heating for <b>many hours under high pressure</b></li>
+      <li>On contaminated machinery (2001 mail sorters): potent but highly dangerous chemical methods (Chapter 23)</li>
+      <li>Exposed postal workers: <b>antibiotics</b> kill newly germinated endospores <b>before</b> vegetative cells make and secrete toxins</li></ul></div>
+  </div>
+  <div class="disease"><ul>
+    <li><b>Anthrax</b> – <i>Bacillus anthracis</i> (studied by Koch and Pasteur); agent of the <b>2001 bioterror attack</b> by mail. Inhaled spores germinate in the lower respiratory tract; vegetative cells secrete <b>three deadly toxins</b>.</li>
+    <li><b>Botulism, gas gangrene, tetanus</b> – different species of <i>Clostridium</i>. Clostridial endospores are common in <b>soil</b> and in human/animal <b>intestines</b>; the environment must be <b>oxygen-free</b> for spores to germinate.</li></ul></div>
+
+  <h4>C. Environmental factors affecting growth</h4>
+  <h5>1) Temperature</h5>
+  <p>Each species has an <b>optimal growth temperature</b> and an approximate <b>30° range</b> (min → max) where it grows, but more slowly.</p>
+  <div class="thermo">
+    <div class="t1"><b>Psychrophiles</b>Optimum &lt;15°C<br>grow 0–20°C</div>
+    <div class="t2"><b>Mesophiles</b>Range 10–45°C</div>
+    <div class="t3"><b>Thermophiles</b>Optimum ~60°C<br>grow 40–70°C</div>
+    <div class="t4"><b>Hyperthermophiles</b>Optimum &gt;80°C<br>up to 113°C</div>
+  </div>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Group</th><th>Temperature</th><th>Key facts</th></tr>
+    <tr><td>Psychrophiles <small>(psychro = cold)</small></td><td>Optimum <b>&lt;15°C</b>; can grow at 0–20°C</td><td>~70% of Earth is ocean with deep water &lt;5°C → largest portion of the global prokaryotic community (bacterial &amp; archaeal extremophiles). Many grow as fast at 4°C as <i>E. coli</i> at 37°C. <b>Cannot be human pathogens</b> (can't grow at 37°C).</td></tr>
+    <tr><td>Mesophiles <small>(meso = middle)</small></td><td><b>10–45°C</b></td><td>Best-characterized prokaryotes; include <b>human pathogens</b>. Can grow slowly below range → refrigerated-food spoilage: <i>S. aureus</i> in cold cuts/salads/leftovers (toxins at 5°C → food poisoning if eaten unheated); <i>Campylobacter</i> – most frequent cause of infective diarrhea.</td></tr>
+    <tr><td>Thermophiles <small>(thermo = heat)</small></td><td>Best ~<b>60°C</b>; 40–70°C</td><td>Compost heaps, hot springs; contaminants of <b>dairy</b> (survive pasteurization). Little threat to humans. Highly <b>saturated fatty acids</b> in membranes; heat-stable proteins/enzymes.</td></tr>
+    <tr><td>Hyperthermophiles</td><td>Optimum <b>&gt;80°C</b></td><td>Many are <b>Archaea</b>. High pressure keeps water from boiling → some grow at <b>113°C</b>.</td></tr>
+  </table></div>
+  <div class="note"><b>Psychrotrophic / psychrotolerant</b> species survive at 0°C but prefer to grow at typical mesophile temperatures.</div>
+
+  <h5>2) Oxygen</h5>
+  <div class="tw" style="--lc:var(--b)"><table>
+    <tr><th>Type</th><th>Relationship with O₂</th><th>Examples &amp; notes</th></tr>
+    <tr><td>Obligate aerobes</td><td>Need plentiful O₂; use it as <b>final electron acceptor</b> to make energy</td><td>Like eukaryotes</td></tr>
+    <tr><td>Microaerophiles</td><td>Survive where O₂ concentration is <b>relatively low</b></td><td><i>Treponema pallidum</i>; cause disease of the oral cavity, urinary tract, GI tract</td></tr>
+    <tr><td>Aerotolerant anaerobes</td><td>Don't use O₂ but are <b>insensitive</b> to it</td><td>—</td></tr>
+    <tr><td>Obligate anaerobes</td><td>Inhibited or <b>killed</b> by O₂</td><td><i>Clostridium</i> (tetanus, gas gangrene – dead anaerobic tissue; botulism – vacuum-sealed can). Sulfur users (<i>Thiomargarita namibiensis</i>) produce <b>H₂S</b> not H₂O; methane-producing archaea produce methane. Life on Earth originated in an anaerobic environment.</td></tr>
+    <tr><td>Facultative</td><td>Grow in either the <b>presence or reduced concentration</b> of O₂</td><td>Many staphylococci &amp; streptococci, <i>Bacillus</i>, intestinal rods such as <i>E. coli</i></td></tr>
+    <tr><td>Capnophiles <small>(capno = smoke)</small></td><td>Need atmosphere <b>low in O₂ but rich in CO₂</b></td><td><i>Neisseria</i>, <i>Streptococcus</i></td></tr>
+  </table></div>
+  <div class="note"><b>Lab techniques:</b> <b>GasPak</b> – hydrogen reacts with oxygen on a catalyst to form water → O₂-free atmosphere. <b>Thioglycollate broth</b> – binds free oxygen so only fresh O₂ entering at the top of the tube is available (shows where organisms grow along the O₂ gradient). <br><small>The sentence in your file about whether a facultative <i>aerobe</i> vs <i>anaerobe</i> prefers oxygen is partly cut off by the scan – check your textbook for the exact wording.</small></div>
+
+  <h5>3) pH</h5>
+  <ul>
+    <li>Most species grow best at <b>neutral pH</b>; human blood/tissues pH <b>7.2–7.4</b> suit many pathogens.</li>
+    <li>Growth range usually covers about <b>three pH units</b>. <i>Vibrio cholerae</i> is hardy: pH <b>2.0 to 9.5</b>.</li>
+    <li><b>Acidophiles</b> (acid-tolerant) are valuable in food/dairy: <i>Lactobacillus</i> and <i>Streptococcus</i> make acid that converts milk → buttermilk and cream → sour cream. Acidophiles also exist among Archaea.</li>
+    <li>Most bacteria do <b>not</b> grow well in acid → the <b>stomach acid</b> deters disease; acidic foods (lemons, oranges, citrus, tomatoes, many vegetables) are rarely contaminated.</li>
+  </ul>
+
+  <h5>4) Hydrostatic pressure</h5>
+  <ul><li>Deep-ocean psychrophiles are under extreme pressure – up to <b>16,000 psi</b> in deep trenches. <b>Barophiles</b> die quickly at normal atmospheric pressure; prokaryotes may be the only organisms that withstand it.</li></ul>
+
+  <h5>5) Osmotic pressure / salt &amp; sugar</h5>
+  <ul>
+    <li>High salt or sugar prevents growth and may kill cells → principle of <b>salting meats</b> and using <b>sugar in jams/jellies</b>.</li>
+    <li><b>Halophiles</b> need relatively high NaCl: marine prokaryotes thrive in <b>3.5%</b> salt; some mesophiles are salt-tolerant (e.g., <i>Staphylococcus</i>); <b>extreme halophiles</b> (Archaea) tolerate <b>20–30%</b> salt.</li>
+  </ul>
+</section>
+
+<!-- 5.3 -->
+<section class="lesson l5" id="s53" data-ch="c5">
+  <h3>5.3 Culture Media and Growth Measurements <label><input type="checkbox" class="done"> Mark as studied</label></h3>
+
+  <div class="mm">
+    <div class="mm-title">Mind map – Culture &amp; measurement</div>
+    <span class="mm-center">Culture media &amp; measurement</span><div class="mm-stem"></div>
+    <div class="mm-branches">
+      <div class="mm-branch b1"><b>Media</b><ul><li>Complex (undefined)</li><li>Chemically defined</li><li>Selective</li><li>Differential</li><li>Enriched</li></ul></div>
+      <div class="mm-branch b2"><b>VBNC</b><ul><li>&lt;1% culturable</li><li>16S rRNA / gene amplification</li></ul></div>
+      <div class="mm-branch b3"><b>Pure culture</b><ul><li>Pour-plate</li><li>Streak-plate</li></ul></div>
+      <div class="mm-branch b4"><b>Measuring growth</b><ul><li>Turbidity (OD)</li><li>Direct microscopic count</li><li>Dry weight / O₂ uptake</li><li>MPN</li><li>Standard plate count (CFU)</li></ul></div>
+    </div>
+  </div>
+
+  <h4>A. Agar &amp; types of culture media</h4>
+  <ul><li><b>Agar</b>: polysaccharide from marine <b>red algae</b>; contains <b>no essential nutrients</b>; a unique colloid that stays liquid until cooled below about <b>36°C</b>.</li></ul>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Medium</th><th>Definition</th><th>Use</th></tr>
+    <tr><td>Complex (chemically undefined)</td><td>Exact components/quantities not known for certain. Examples: <b>nutrient broth, nutrient agar</b></td><td>Teaching labs – simply grow prokaryotes</td></tr>
+    <tr><td>Chemically defined (synthetic)</td><td>Chemical composition and amount of <b>all</b> components known</td><td>Determine an organism's <b>specific growth requirements</b></td></tr>
+  </table></div>
+
+  <h4>B. Special-purpose media</h4>
+  <div class="tw" style="--lc:var(--p)"><table>
+    <tr><th>Medium</th><th>Purpose</th><th>Contains</th><th>Example</th></tr>
+    <tr><td>Selective</td><td>Select certain prokaryotes out of a mixture</td><td>Growth <b>inhibitors</b> (extra NaCl, antibiotic) + (growth stimulants)</td><td><b>Mannitol salt agar</b> for staphylococci</td></tr>
+    <tr><td>Differential</td><td>Distinguish different prokaryotes in a mixture by biochemical/physiological properties</td><td><b>Dyes</b> / indicator chemicals</td><td><b>MacConkey agar</b> for gram-negative bacteria</td></tr>
+    <tr><td>Enriched</td><td>Cultivate <b>fastidious</b> prokaryotes</td><td>Growth stimulants (special nutrients)</td><td><b>Blood agar</b> for streptococci; <b>chocolate agar</b> for <i>Neisseria</i></td></tr>
+  </table></div>
+
+  <h4>C. VBNC – viable but non-culturable</h4>
+  <ul>
+    <li>Fewer than <b>1%</b> of microorganisms in natural water and soil samples can be cultured → culturability alone can't estimate microbial diversity.</li>
+    <li><b>Identification:</b> direct microscopic examination and, most commonly, <b>amplification of diagnostic gene sequences or 16S rRNA sequences</b>.</li>
+    <li><b>Why non-culturable?</b> Some have metabolic injuries (damaged membrane or ribosomes); more often it's simply <b>lack of knowledge about nutritional requirements</b>. Most <b>rickettsiae and chlamydiae</b> grow only in <b>mammalian cell cultures or animals</b>.</li>
+    <li>VBNC studies matter for detecting human pathogens and revealing the diversity of Bacteria and Archaea.</li>
+  </ul>
+
+  <h4>D. Pure cultures – isolation methods</h4>
+  <p>A <b>pure culture</b> contains only <b>one species</b>.</p>
+  <div class="grid2">
+    <div class="card t"><h5>Pour-plate method</h5>A sample of mixed culture is <b>diluted in several tubes of cooled, still-molten agar</b> → poured into sterile Petri dishes and hardened → cells form <b>discrete colonies</b> where most diluted.</div>
+    <div class="card o"><h5>Streak-plate method</h5>Single plate of nutrient agar. A sterile loop picks an inoculum from the mixed culture, streaked near one edge; <b>successive streaks</b> thin the cells; incubate → <b>well-isolated colonies</b> = successful isolation.</div>
+  </div>
+
+  <h4>E. Measuring population growth</h4>
+  <div class="tw" style="--lc:var(--c5)"><table>
+    <tr><th>Method</th><th>Type</th><th>How it works</th><th>Counts</th></tr>
+    <tr><td>Turbidity / spectrophotometer</td><td>Indirect (mass)</td><td>Measures light scattered by cell suspension – <b>optical density (OD)</b>; more cells = more scatter = higher OD. A <b>standard curve</b> relates OD to cell numbers.</td><td>—</td></tr>
+    <tr><td>Direct microscopic count</td><td>Direct</td><td>Known sample on a special slide – <b>Petroff-Hausser counting chamber</b>: grid of <b>25 large squares</b>, total volume <b>0.00002 ml (2×10⁻⁵ ml)</b>; count cells in several large squares → average.</td><td><b>Live + dead</b> cells</td></tr>
+    <tr><td>Dry weight</td><td>Indirect</td><td>Measures cell <b>mass</b></td><td>Total</td></tr>
+    <tr><td>Oxygen uptake</td><td>Indirect</td><td>Metabolic activity → indicates cell number</td><td>—</td></tr>
+    <tr><td>Most probable number (MPN)</td><td>Estimate</td><td>Samples added to many <b>lactose broth</b> tubes; presence/absence of <b>gas</b> from fermentation → rough statistical estimate. Used for <b>water quality</b> (MicroInquiry 26, Ch. 26).</td><td>Statistical estimate</td></tr>
+    <tr><td>Standard plate count</td><td>Estimate (viable)</td><td>Broth culture is <b>diluted</b>, dilutions spread on agar plates; each cell → a colony = <b>colony-forming unit (CFU)</b>; count colonies after incubation.</td><td><b>Viable (living) cells only</b></td></tr>
+  </table></div>
+  <div class="key"><b>Exam tip:</b> Microscopic count and dry weight = <b>total</b> (live + dead). Standard plate count = <b>viable</b> only (CFUs).</div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="lesson l4" id="quiz" data-ch="c4 c5" style="--lc:var(--a);--lcb:var(--ab)">
+  <h3>📝 Self-test Questions (click to reveal the answer)</h3>
+  <h4>Chapter 4</h4>
+  <details class="q"><summary>Which phylum is the largest and most diverse, and what organelle likely came from its ancestor?</summary><div><b>Proteobacteria</b>; the <b>mitochondria</b> of Eukarya (via endosymbiosis).</div></details>
+  <details class="q"><summary>Which organelle likely came from a cyanobacterial ancestor?</summary><div><b>Chloroplasts</b>.</div></details>
+  <details class="q"><summary>Name the three archaeal groups in Euryarchaeota and one feature of each.</summary><div><b>Methanogens</b> (killed by O₂, produce methane), <b>extreme halophiles</b> (need O₂ and high NaCl, pink pigments), <b>thermoacidophiles</b> (high temperature + very low pH).</div></details>
+  <details class="q"><summary>Which cell wall components are found in Archaea instead of peptidoglycan?</summary><div>Pseudopeptidoglycan (NAT instead of NAM), polysaccharide, protein, or an <b>S-layer</b>.</div></details>
+  <details class="q"><summary>Differentiate vibrio, spirillum and spirochete.</summary><div><b>Vibrio</b>: comma-shaped curved rod. <b>Spirillum</b>: helical, thick rigid wall, flagella. <b>Spirochete</b>: thin flexible wall, axial filaments (contraction) – e.g., <i>Treponema pallidum</i>.</div></details>
+  <details class="q"><summary>What is the difference between a capsule and a slime layer?</summary><div>Capsule = thick, covalently bound to the cell. Slime layer = thinner, diffuse (often dextran).</div></details>
+  <details class="q"><summary>What drives flagellar rotation, and how fast can it spin?</summary><div>Diffusion of <b>H⁺ (protons)</b> into the cell through basal-body proteins; up to <b>1,500 rpm</b>.</div></details>
+  <details class="q"><summary>Counterclockwise vs clockwise flagellar rotation?</summary><div>Counterclockwise = <b>run</b>; clockwise = <b>tumble</b>. Toward an attractant: longer runs, fewer tumbles.</div></details>
+  <details class="q"><summary>What is lipid A and why is it important?</summary><div>The lipid part of LPS in the gram-negative outer membrane; released on cell death as an <b>endotoxin</b>.</div></details>
+  <details class="q"><summary>What are porins?</summary><div>Outer-membrane proteins forming pores that let <b>small</b> molecules into the periplasmic space.</div></details>
+  <details class="q"><summary>How does the archaeal membrane differ from a bacterial one?</summary><div>Ether-linked lipids, five-carbon repeating-unit tails, and a lipid <b>monolayer</b> rather than a bilayer.</div></details>
+  <details class="q"><summary>Why are plasmids called R plasmids?</summary><div>Many carry genes for <b>resistance</b> to chemicals/antibiotics.</div></details>
+  <details class="q"><summary>Name the three cytoskeletal proteins/homologs in prokaryotes.</summary><div><b>Tubulin homolog</b>, <b>actin homologs</b>, and <b>crescentin</b>.</div></details>
+
+  <h4>Chapter 5</h4>
+  <details class="q"><summary>Describe the four phases of the growth curve.</summary><div>Lag (adaptation, no division) → Log (exponential doubling) → Stationary (births = deaths) → Decline (deaths exceed births).</div></details>
+  <details class="q"><summary>In which phase are cells most vulnerable to antibiotics, and why?</summary><div><b>Log phase</b> – antibiotics affect actively metabolizing cells.</div></details>
+  <details class="q"><summary>Which genera form endospores, and what substance stabilizes proteins and DNA in the prespore?</summary><div><i>Bacillus</i> and <i>Clostridium</i>; <b>dipicolinic acid</b>.</div></details>
+  <details class="q"><summary>Give the four temperature groups and their optimum ranges.</summary><div>Psychrophiles &lt;15°C; mesophiles 10–45°C; thermophiles ~60°C (40–70°C); hyperthermophiles &gt;80°C.</div></details>
+  <details class="q"><summary>Which oxygen group needs low O₂ and high CO₂?</summary><div><b>Capnophiles</b> (<i>Neisseria</i>, <i>Streptococcus</i>).</div></details>
+  <details class="q"><summary>Selective vs differential medium – with one example each.</summary><div>Selective inhibits some organisms (mannitol salt agar for staphylococci). Differential shows biochemical differences with indicators (MacConkey agar).</div></details>
+  <details class="q"><summary>Which counting method gives viable cells only?</summary><div>The <b>standard plate count</b> (CFUs).</div></details>
+  <details class="q"><summary>Why can't we estimate microbial diversity by culturing alone?</summary><div>Less than <b>1%</b> of environmental microbes can be cultured (VBNC); methods like <b>16S rRNA sequencing</b> are used instead.</div></details>
+</section>
+
+</main>
+</div>
+
+<footer>Prepared from your uploaded notes · Chapters 4 &amp; 5 · Good luck! 🍀</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  // theme
+  try{var t=localStorage.getItem('mb-theme'); if(t) root.setAttribute('data-theme',t);}catch(e){}
+  document.getElementById('theme').onclick=function(){
+    var n=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',n);
+    try{localStorage.setItem('mb-theme',n);}catch(e){}
+  };
+  // chapter filter
+  var btns=document.querySelectorAll('.toolbar button[data-f]');
+  btns.forEach(function(b){b.onclick=function(){
+    btns.forEach(function(x){x.classList.remove('on')}); b.classList.add('on');
+    var f=b.getAttribute('data-f');
+    document.querySelectorAll('[data-ch]').forEach(function(el){
+      var ch=el.getAttribute('data-ch').split(' ');
+      el.classList.toggle('hide', f!=='all' && ch.indexOf(f)<0);
+    });
+  };});
+  // progress
+  var boxes=document.querySelectorAll('input.done');
+  function upd(){
+    var n=0; boxes.forEach(function(b){if(b.checked)n++;});
+    document.getElementById('prog').textContent='Studied: '+n+' / '+boxes.length;
+  }
+  boxes.forEach(function(b,i){
+    try{ if(localStorage.getItem('mb-done-'+i)==='1') b.checked=true; }catch(e){}
+    b.onchange=function(){ try{localStorage.setItem('mb-done-'+i,b.checked?'1':'0');}catch(e){} upd(); };
+  });
+  upd();
+  // search highlight (shows/hides lessons)
+  document.getElementById('search').oninput=function(){
+    var q=this.value.trim().toLowerCase();
+    document.querySelectorAll('section.lesson').forEach(function(s){
+      s.classList.toggle('hide', q.length>1 && s.textContent.toLowerCase().indexOf(q)<0);
+    });
+  };
+  // scroll spy
+  var links=document.querySelectorAll('#side a');
+  var secs=[].map.call(links,function(a){return document.querySelector(a.getAttribute('href'));});
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY+120, cur=0;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) cur=i; });
+    links.forEach(function(a,i){a.classList.toggle('active',i===cur);});
+  });
+})();
+</script>
+</body>
+</html>
